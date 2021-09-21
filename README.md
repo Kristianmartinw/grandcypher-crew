@@ -1,1 +1,0 @@
-# grandcypher-crew
