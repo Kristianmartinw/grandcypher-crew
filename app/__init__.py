@@ -9,7 +9,7 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.archetype_routes import archetype_routes
-from .api.archetype_values_routes import archetype_values_routes
+from .api.archetype_values_routes import archetype_value_routes
 from .api.character_routes import character_routes
 from .api.charge_attack_routes import charge_attack_routes
 from .api.element_routes import element_routes
@@ -41,7 +41,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(archetype_routes, url_prefix='/api/archetype')
-app.register_blueprint(archetype_values_routes, url_prefix='/api/archetype_values')
+app.register_blueprint(archetype_value_routes, url_prefix='/api/archetype_values')
 app.register_blueprint(character_routes, url_prefix='/api/character')
 app.register_blueprint(charge_attack_routes, url_prefix='/api/charge_attack')
 app.register_blueprint(element_routes, url_prefix='/api/element')
