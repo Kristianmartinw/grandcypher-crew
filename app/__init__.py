@@ -8,6 +8,16 @@ from flask_login import LoginManager
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
+from .api.archetype_routes import archetype_routes
+from .api.archetype_values_routes import archetype_values_routes
+from .api.character_routes import character_routes
+from .api.charge_attack_routes import charge_attack_routes
+from .api.element_routes import element_routes
+from .api.party_routes import party_routes
+from .api.race_routes import race_routes
+from .api.skill_routes import skill_routes
+from .api.specialty_routes import specialty_routes
+from .api.support_skill_routes import support_skill_routes
 
 from .seeds import seed_commands
 
@@ -30,6 +40,16 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(archetype_routes, url_prefix='/api/archetype')
+app.register_blueprint(archetype_values_routes, url_prefix='/api/archetype_values')
+app.register_blueprint(character_routes, url_prefix='/api/character')
+app.register_blueprint(charge_attack_routes, url_prefix='/api/charge_attack')
+app.register_blueprint(element_routes, url_prefix='/api/element')
+app.register_blueprint(party_routes, url_prefix='/api/party')
+app.register_blueprint(race_routes, url_prefix='/api/race')
+app.register_blueprint(skill_routes, url_prefix='/api/skill')
+app.register_blueprint(specialty_routes, url_prefix='/api/specialty')
+app.register_blueprint(support_skill_routes, url_prefix='/api/support_skill')
 db.init_app(app)
 Migrate(app, db)
 
