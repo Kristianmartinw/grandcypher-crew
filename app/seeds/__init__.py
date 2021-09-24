@@ -11,6 +11,7 @@ from .characters import seed_characters, undo_characters
 from .skills import seed_skills, undo_skills
 from .archetype_values import seed_archetype_values, undo_archetype_values
 from .character_party_joins import seed_character_party_joins, undo_character_party_joins
+from .support_skills import seed_support_skills, undo_support_skills
 
 seed_commands = AppGroup('seed')
 
@@ -27,6 +28,7 @@ def seed():
     seed_skills()
     seed_archetype_values()
     seed_character_party_joins()
+    seed_support_skills()
 
 
 @seed_commands.command('undo')
@@ -42,3 +44,4 @@ def undo():
     undo_skills()
     undo_archetype_values()
     undo_character_party_joins()
+    undo_support_skills()
