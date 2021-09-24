@@ -6,7 +6,9 @@ const loadChargeAttacks = (chargeAttacks) => ({
 });
 
 export const getChargeAttacks = () => async (dispatch) => {
-    const response = await fetch('/api/charge-attack/')
+
+    const response = await fetch('/api/charge_attack/')
+
 
     if (response.ok) {
         const chargeAttacks = await response.json()
