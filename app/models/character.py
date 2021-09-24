@@ -24,7 +24,7 @@ class Character(db.Model):
 
     def to_dict(self):
         return {
-            "archetype_values": {
+            "archetype_value": {
                 "enmity_value": self.archetype_value.enmity_value,
                 "stamina_value": self.archetype_value.stamina_value,
                 "sustain_value": self.archetype_value.sustain_value,

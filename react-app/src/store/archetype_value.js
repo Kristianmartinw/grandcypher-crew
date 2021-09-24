@@ -1,4 +1,6 @@
+
 const LOAD_ARCHETYPE_VALUES = "archetype_value/LOAD_ARCHETYPE_VALUES"
+
 
 const loadArchetypeValues = (archetypeValues) => ({
     type: LOAD_ARCHETYPE_VALUES,
@@ -7,6 +9,7 @@ const loadArchetypeValues = (archetypeValues) => ({
 
 export const getArchetypeValues = () => async (dispatch) => {
     const response = await fetch('/api/archetype_values/')
+
 
     if (response.ok) {
         const archetypeValues = await response.json()
