@@ -7,6 +7,16 @@ import LogoutButton from './components/auth/LogoutButton';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/users/User';
 import { authenticate } from './store/session';
+import { getArchetypeValues } from './store/archetype_value'
+import { getArchetypes } from './store/archetype'
+import { getCharacters } from './store/character'
+import { getChargeAttacks } from './store/chargeAttack'
+import { getElements } from './store/element'
+import { getParties } from './store/party'
+import { getRaces } from './store/race'
+import { getSkills } from './store/skill'
+import { getSpecialties } from './store/specialty'
+import { getSupportSkills } from './store/supportSkill'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -17,6 +27,16 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
+    dispatch(getArchetypeValues())
+    dispatch(getArchetypes())
+    dispatch(getCharacters())
+    dispatch(getChargeAttacks())
+    dispatch(getElements())
+    dispatch(getParties())
+    dispatch(getRaces())
+    dispatch(getSkills())
+    dispatch(getSpecialties())
+    dispatch(getSupportSkills())
   }, [dispatch]);
 
   if (!loaded) {

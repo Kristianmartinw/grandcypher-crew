@@ -10,3 +10,4 @@ from .party import Party
 from .race import Race
 from .skill import Skill
 from .specialty import Specialty
+from .support_skill import SupportSkill
