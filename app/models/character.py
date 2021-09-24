@@ -17,7 +17,7 @@ class Character(db.Model):
     archetype_id = db.Column(db.Integer, db.ForeignKey("archetypes.id"))
     charge_attack_id = db.Column(db.Integer, db.ForeignKey("charge_attacks.id"))
 
-    archetype_value=db.relationship('ArchetypeValue')
+    archetype_value=db.relationship('ArchetypeValue', uselist=False)
     archetype=db.relationship('Archetype', back_populates='characters')
     skills=db.relationship('Skill')
     parties=db.relationship('Party', secondary=character_party_joins, back_populates='characters')
