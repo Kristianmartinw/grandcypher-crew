@@ -1,11 +1,39 @@
-from flask import Blueprint
-from app.models import Party
+from flask import Blueprint, request
+from app.models import Party, db
 
-party_routes = Blueprint('partys', __name__)
+party_routes = Blueprint('parties', __name__)
 
 @party_routes.route('/')
-def partys():
+def parties():
+    parties = Party.query.all()
+    return {party.id:party.to_dict() for party in parties}
 
-    partys = Party.query.all()
+@party_routes.route('/', methods=["POST"])
+def create_party():
+    data = request.get_json()
+    new_party = Party(
+        name=data['name'],
+        owner_id=data['owner_id'],
+    )
+    db.session.add(new_party)
+    db.session.commit()
+    return new_party.to_dict()
 
-    return {party.id:party.to_dict() for party in partys}
+@party_routes.route('/<int:party_id>/', methods=["PUT"])
+def edit_party(party_id):
+    data = request.get_json()
+    party = Party.query.get(party_id)
+    if party:
+        party.name = data['name'],
+        db.session.commit()
+        return party.to_dict()
+    return {"Error": "Party not found"}
+
+@party_routes.route('/<int:party_id>/', methods=["DELETE"])
+def delete_party(party_id):
+    party = Party.query.get(party_id)
+    if party:
+        db.session.delete(party)
+        db.session.commit()
+        return {"Success": "Party deleted"}
+    return {"Error": "Party failed to delete"}

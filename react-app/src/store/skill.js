@@ -6,7 +6,7 @@ const loadSkills = (skills) => ({
 });
 
 export const getSkills = () => async (dispatch) => {
-    const response = await fetch('/api/skill/')
+    const response = await fetch('/api/skills/')
 
     if (response.ok) {
         const skills = await response.json()

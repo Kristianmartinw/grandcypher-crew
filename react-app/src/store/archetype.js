@@ -6,7 +6,7 @@ const loadArchetypes = (archetypes) => ({
 });
 
 export const getArchetypes = () => async (dispatch) => {
-    const response = await fetch('/api/archetype/')
+    const response = await fetch('/api/archetypes/')
 
     if (response.ok) {
         const archetypes = await response.json()

@@ -6,7 +6,7 @@ const loadElements = (elements) => ({
 });
 
 export const getElements = () => async (dispatch) => {
-    const response = await fetch('/api/element/')
+    const response = await fetch('/api/elements/')
 
     if (response.ok) {
         const elements = await response.json()

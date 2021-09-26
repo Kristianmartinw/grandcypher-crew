@@ -7,7 +7,7 @@ const loadSupportSkills = (supportSkills) => ({
 
 export const getSupportSkills = () => async (dispatch) => {
 
-    const response = await fetch('/api/support_skill/')
+    const response = await fetch('/api/support_skills/')
 
 
     if (response.ok) {

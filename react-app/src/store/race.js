@@ -6,7 +6,7 @@ const loadRaces = (races) => ({
 });
 
 export const getRaces = () => async (dispatch) => {
-    const response = await fetch('/api/race/')
+    const response = await fetch('/api/races/')
 
     if (response.ok) {
         const races = await response.json()

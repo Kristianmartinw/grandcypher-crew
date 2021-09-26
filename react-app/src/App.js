@@ -48,6 +48,29 @@ function App() {
     dispatch(getSupportSkills())
   }, [dispatch]);
 
+  const archetypeValuesSlice = useSelector(state => state.archetypeValues)
+  const archetypesSlice = useSelector(state => state.archetypes)
+  const charactersSlice = useSelector(state => state.characters)
+  const chargeAttacksSlice = useSelector(state => state.chargeAttacks)
+  const elementsSlice = useSelector(state => state.elements)
+  const partiesSlice = useSelector(state => state.parties)
+  const racesSlice = useSelector(state => state.races)
+  const skillsSlice = useSelector(state => state.skills)
+  const specialtiesSlice = useSelector(state => state.specialties)
+  const supportSkillsSlice = useSelector(state => state.supportSkills)
+
+
+  const archetypeValues = Object.values(archetypeValuesSlice)
+  const archetypes = Object.values(archetypesSlice)
+  const characters = Object.values(charactersSlice)
+  const chargeAttacks = Object.values(chargeAttacksSlice)
+  const elements = Object.values(elementsSlice)
+  const parties = Object.values(partiesSlice)
+  const races = Object.values(racesSlice)
+  const skills = Object.values(skillsSlice)
+  const specialties = Object.values(specialtiesSlice)
+  const supportSkills = Object.values(supportSkillsSlice)
+
   if (!loaded) {
     return null;
   }
@@ -71,13 +94,13 @@ function App() {
           <LoginForm />
         </Route>
         <Route path='/users/:id' exact={true}>
-          <Profile />
+          <Profile archetypeValues={archetypeValues} parties={parties} sessionUser={sessionUser} authenticated={authenticated} />
         </Route>
         <Route path='/characters' exact={true} >
-          <Characters />
+          <Characters characters={characters} />
         </Route>
         <Route path='/parties' exact={true} >
-          <Parties />
+          <Parties parties={parties} />
         </Route>
         <Route>
           <Pagenotfound />
