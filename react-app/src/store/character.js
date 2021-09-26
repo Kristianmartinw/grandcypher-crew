@@ -6,7 +6,7 @@ const loadCharacters = (characters) => ({
 });
 
 export const getCharacters = () => async (dispatch) => {
-    const response = await fetch('/api/character/')
+    const response = await fetch('/api/characters/')
 
     if (response.ok) {
         const characters = await response.json()

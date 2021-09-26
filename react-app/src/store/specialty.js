@@ -6,7 +6,7 @@ const loadSpecialties = (specialties) => ({
 });
 
 export const getSpecialties = () => async (dispatch) => {
-    const response = await fetch('/api/specialty/')
+    const response = await fetch('/api/specialties/')
 
     if (response.ok) {
         const specialties = await response.json()
