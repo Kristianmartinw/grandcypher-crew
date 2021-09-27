@@ -21,6 +21,7 @@ import { getRaces } from './store/race'
 import { getSkills } from './store/skill'
 import { getSpecialties } from './store/specialty'
 import { getSupportSkills } from './store/supportSkill'
+import './index.css';
 
 function App() {
   const [loaded, setLoaded] = useState(false);

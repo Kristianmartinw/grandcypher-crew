@@ -1,0 +1,12 @@
+.character-card{
+height: 350px;
+width: 400px;
+border: 10px solid black;
+}
+.character-name{
+text-align: center;
+}
+.character-img{
+height: 350px;
+width: 400px;
+}

@@ -1,6 +1,12 @@
+.nav-container{
+    display: flex;
+    justify-items: space-between;
+}
+
 .nav-url{
     border-radius: 50%;
     border: 2px solid green;
     height: 40px;
     width: 40px;
+
 }
