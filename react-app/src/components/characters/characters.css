@@ -1,12 +1,25 @@
 .character-card{
-height: 350px;
-width: 400px;
+height: 400px;
+width: 200px;
 border: 10px solid black;
+position: relative;
 }
+
 .character-name{
 text-align: center;
+background-color: white;
 }
+
+.character-img-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    padding: 1.5em 0 1em;
+}
+
 .character-img{
-height: 350px;
-width: 400px;
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
 }
