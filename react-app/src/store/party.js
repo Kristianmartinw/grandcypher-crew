@@ -17,6 +17,7 @@ const removeParty = (id) => ({
     id
 })
 
+
 export const getParties = () => async (dispatch) => {
     const response = await fetch('/api/parties/')
 
@@ -68,6 +69,32 @@ export const deleteParty = (id) => async (dispatch) => {
     }
 }
 
+export const addCharacterParty = (partyId, characterId) => async (dispatch) => {
+    let res = await fetch(`/api/parties/${partyId}/add`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ character_id: characterId })
+    })
+
+    let data
+
+    if (res.ok) {
+        data = await res.json()
+        dispatch(updateParty(data))
+    }
+}
+
+export const deleteCharacterParty = (partyId, characterId) => async (dispatch) => {
+    let res = await fetch(`/api/parties/${partyId}/characters/${characterId}`, {
+        method: 'DELETE'
+    })
+    let data
+    if (res.ok) {
+        data = await res.json()
+        dispatch(updateParty(data))
+    }
+
+}
 
 
 

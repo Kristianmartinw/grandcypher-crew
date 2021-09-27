@@ -52,7 +52,7 @@ const Profile = ({ parties }) => {
 
             {sessionUser?.username}
             <div>
-                <img src={sessionUser?.profile_url} />
+                <img className='profile-img' src={sessionUser?.profile_url} />
             </div>
             <div>
                 <div>
@@ -98,8 +98,10 @@ const Profile = ({ parties }) => {
                     </form>
                     <button onClick={e => setRemoveParty(false)}>Cancel</button>
                 </div>
-
             }
+            <button>Add character</button>
+            <button>Change Character</button>
+            <button>Remove Character</button>
         </>
     )
 }
