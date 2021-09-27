@@ -12,9 +12,16 @@ const Characters = ({ characters }) => {
             <div className='characters-page'>
                 This is characters page
             </div>
-
-            {characters.map(character => <img src={character.character_url}></img>)}
-
+            {characters.map(character =>
+                <div className='character-card'>
+                    <div className='character-name'>
+                        {character.name}
+                    </div>
+                    <div>
+                        <img className='character-img' src={character.character_url}></img>
+                    </div>
+                </div>
+            )}
         </>
     )
 }

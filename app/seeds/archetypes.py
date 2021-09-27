@@ -3,7 +3,7 @@ from app.models import db, Archetype
 
 def seed_archetypes():
 
-    archetypes = ['Enmity', 'Stamina', 'Sustain', 'Ougi', 'Skill Damage', 'Otk', 'Multi' ]
+    archetypes = ['Enmity', 'Stamina', 'Sustain', 'Ougi', 'Skill Damage', 'Multi', 'Otk Ougi', 'Otk Multi']
 
     for archetype in archetypes:
         new_archetype = Archetype(name=archetype)
