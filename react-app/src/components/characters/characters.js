@@ -19,25 +19,25 @@ const Characters = ({ characters }) => {
             {characters.map(character =>
                 <div className='character-card'>
                     <div className='character-name'>
-                        {character.name}
+                        {character?.name}
                     </div>
                     <div className='character-img-container'>
-                        <img className='character-img' src={character.character_url}></img>
+                        <img className='character-img' src={character?.character_url}></img>
                     </div>
                     <div>
-                        {character.max_hp}
+                        {character?.max_hp}
                     </div>
                     <div>
-                        {character.max_atk}
+                        {character?.max_atk}
                     </div>
                     <div>
-                        <img src={elements[character.element_id].element_url}></img>
+                        <img src={elements[character.element_id]?.element_url}></img>
                     </div>
                     <div>
-                        <img src={races[character.race_id].race_url}></img>
+                        <img src={races[character.race_id]?.race_url}></img>
                     </div>
                     <div>
-                        <img src={specialties[character.specialty_id].specialty_url}></img>
+                        <img src={specialties[character?.specialty_id]?.specialty_url}></img>
                     </div>
                 </div>
             )}

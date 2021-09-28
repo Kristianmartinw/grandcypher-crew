@@ -4,6 +4,7 @@
 }
 
 .nav-url{
+    object-fit: cover;
     border-radius: 50%;
     border: 2px solid green;
     height: 40px;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './profile.css';
 import { useDispatch, useSelector } from "react-redux";
 import { createNewParty, editParty, deleteParty, addCharacterParty, deleteCharacterParty } from '../../store/party';
@@ -13,13 +13,18 @@ const Profile = ({ parties, characters }) => {
     const [changeParty, setChangeParty] = useState(false)
     const [removeParty, setRemoveParty] = useState(false)
     const [selectCharacter, setSelectCharacter] = useState(1)
+    const [currentCharacter, setCurrentCharacter] = useState('')
     const [addCharacter, setAddCharacter] = useState(false)
-    const [removeCharacter, setRemoveCharacter] = useState(false)
+    const [editCharacter, setEditCharacter] = useState(false)
 
-    const party = parties?.find(party => party.id === +selectParty)
-    const character = parties?.find(character => character.id)
+    const usersParties = parties?.filter(party => party.owner_id === +sessionUser.id)
+    const party = usersParties?.find(party => party.id === +selectParty)
+    const partyCharacterIds = party?.characters.map(character => character.id)
+    const validCharacters = characters?.filter(character => !partyCharacterIds?.includes(character?.id))
 
-    console.log('THIS IS CHARACTER ------>', character)
+    useEffect(() => {
+        setSelectCharacter(validCharacters[0]?.id)
+    })
 
     const handlePartySubmit = e => {
         e.preventDefault();
@@ -57,10 +62,18 @@ const Profile = ({ parties, characters }) => {
         setAddCharacter(false)
     }
 
-    const handleRemoveCharacter = e => {
-        e.preventDefault();
-        dispatch(deleteCharacterParty(party.id, selectCharacter))
-        setRemoveCharacter(false)
+    const handleEditCharacter = async e => {
+        e.preventDefault()
+
+        await dispatch(deleteCharacterParty(party.id, currentCharacter))
+        dispatch(addCharacterParty(party.id, selectCharacter))
+        setEditCharacter(false)
+        setCurrentCharacter('')
+    }
+
+    const handleRemoveCharacter = () => {
+        dispatch(deleteCharacterParty(party.id, currentCharacter))
+        setCurrentCharacter('')
     }
 
     return (
@@ -76,7 +89,7 @@ const Profile = ({ parties, characters }) => {
             </div>
             <div>
                 <div>
-                    {parties.map(party =>
+                    {usersParties.map(party =>
                         <div id={party.id} onClick={e => setSelectParty(e.target.id)}>
                             {party.name}
                         </div>
@@ -85,7 +98,7 @@ const Profile = ({ parties, characters }) => {
                 {selectParty &&
                     party?.characters.map(character =>
                         <div>
-                            <img src={character.character_url} />
+                            <img id={character.id} className='party-characters' onClick={e => setCurrentCharacter(e.target.id)} src={character.character_url} />
                         </div>
                     )
                 }
@@ -119,12 +132,12 @@ const Profile = ({ parties, characters }) => {
                     <button onClick={e => setRemoveParty(false)}>Cancel</button>
                 </div>
             }
-            <button onClick={e => setAddCharacter(true)}>Add character</button>
+            <button onClick={e => setAddCharacter(true)} disabled={party?.characters.length === 4}>Add character</button>
             {addCharacter && selectParty &&
                 < div >
                     <form onSubmit={handleAddCharacter}>
                         <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
-                            {characters.map(character =>
+                            {validCharacters.map(character =>
                                 <option value={character.id}>
                                     {character.name}
                                 </option>
@@ -135,13 +148,12 @@ const Profile = ({ parties, characters }) => {
                     <button onClick={e => setAddCharacter(false)}>Cancel</button>
                 </div>
             }
-            <button>Change Character</button>
-            <button onClick={e => setRemoveCharacter(true)}>Remove Character</button>
-            {removeCharacter && selectParty &&
+            <button onClick={e => setEditCharacter(true)} disabled={!currentCharacter}>Change Character</button>
+            {editCharacter &&
                 <div>
-                    <form onSubmit={handleRemoveCharacter}>
+                    <form onSubmit={handleEditCharacter}>
                         <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
-                            {party.characters.map(character =>
+                            {validCharacters.map(character =>
                                 <option value={character.id}>
                                     {character.name}
                                 </option>
@@ -149,9 +161,10 @@ const Profile = ({ parties, characters }) => {
                         </select>
                         <button>Submit</button>
                     </form>
-                    <button onClick={e => setRemoveCharacter(false)}>Cancel</button>
+                    <button onClick={e => setEditCharacter(false)}>Cancel</button>
                 </div>
             }
+            <button onClick={e => handleRemoveCharacter()} disabled={!currentCharacter}>Remove Character</button>
         </>
     )
 }

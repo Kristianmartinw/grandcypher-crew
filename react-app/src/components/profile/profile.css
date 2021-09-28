@@ -1,5 +1,10 @@
 .profile-img{
+    object-fit: cover;
     height: 100px;
     width: 100px;
     border-radius: 50%;
+}
+.party-characters {
+    height: 200px;
+    width:200px
 }
