@@ -8,3 +8,13 @@ body {
 * {
   box-sizing: border-box;
 }
+
+button {
+  background-color: transparent;
+  border: transparent;
+  text-decoration: none;
+}
+
+button:hover {
+  cursor: pointer;
+}

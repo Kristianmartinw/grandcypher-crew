@@ -1,6 +1,8 @@
 .nav-container{
     display: flex;
-    justify-items: space-between;
+    justify-content: space-around;
+    background-color: ivory;
+    border-bottom: 2px solid black;
 }
 
 .nav-url{
