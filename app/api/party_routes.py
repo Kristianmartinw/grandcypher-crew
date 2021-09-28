@@ -40,11 +40,11 @@ def delete_party(party_id):
 
 @party_routes.route('/<int:party_id>/add', methods = ['POST'])
 def add_character(party_id):
-    data = character_party_joins.get_json()
+    data = request.get_json()
 
-    character_id = data['characterId']
+    character_id = data['character_id']
 
-    db.session.execute(character_party_joins.insert().values(party_id == party_id, character_id == character_id))
+    db.session.execute(character_party_joins.insert().values(party_id = party_id, character_id = character_id))
 
     db.session.commit()
 
@@ -54,7 +54,7 @@ def add_character(party_id):
 
 @party_routes.route('/<int:party_id>/characters/<int:character_id>', methods = ['DELETE'])
 def remove_character(party_id, character_id):
-    db.session.execute(character_party_joins.delete().where(character_party_joins.c.party_id) == +party_id).where(character_party_joins.c.character_id == +character_id)
+    db.session.execute(character_party_joins.delete().where(character_party_joins.c.party_id == +party_id).where(character_party_joins.c.character_id == +character_id))
 
     db.session.commit()
 

@@ -95,7 +95,7 @@ function App() {
           <LoginForm />
         </Route>
         <Route path='/users/:id' exact={true}>
-          <Profile archetypeValues={archetypeValues} parties={parties} sessionUser={sessionUser} authenticated={authenticated} />
+          <Profile archetypeValues={archetypeValues} parties={parties} characters={characters} sessionUser={sessionUser} authenticated={authenticated} />
         </Route>
         <Route path='/characters' exact={true} >
           <Characters characters={characters} />
