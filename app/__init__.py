@@ -18,6 +18,7 @@ from .api.race_routes import race_routes
 from .api.skill_routes import skill_routes
 from .api.specialty_routes import specialty_routes
 from .api.support_skill_routes import support_skill_routes
+from .api.ratings import rating_routes
 
 from .seeds import seed_commands
 
@@ -50,6 +51,7 @@ app.register_blueprint(race_routes, url_prefix='/api/races')
 app.register_blueprint(skill_routes, url_prefix='/api/skills')
 app.register_blueprint(specialty_routes, url_prefix='/api/specialties')
 app.register_blueprint(support_skill_routes, url_prefix='/api/support_skills')
+app.register_blueprint(rating_routes, url_prefix='/api/ratings')
 db.init_app(app)
 Migrate(app, db)
 
