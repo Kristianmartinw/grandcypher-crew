@@ -11,7 +11,8 @@ const Parties = ({ parties }) => {
             </div>
             {parties.map(party =>
                 <div>
-                    {party.name}
+                    {party?.name}
+
                 </div>
             )}
         </>

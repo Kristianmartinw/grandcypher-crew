@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
+from random import randint
 from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
@@ -42,11 +43,23 @@ def logout():
 
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
+    profile_urls = [
+                    'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/profile-placeholder.jpg',
+                    'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/profile-placeholder-2.jpg',
+                    'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/profile-placeholder-3.jpg',
+                    'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/profile-placeholder-4.png',
+                    'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/profile-placeholder-5.png',
+                    'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/profile-placeholder-6.jpeg',
+                    'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/profile-placeholder-7.png',
+                    'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/profile-placeholder-8.gif'
+                    ]
+
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User(
             username=form.data['username'],
+            profile_url=profile_urls[randint(0,len(profile_urls)-1)],
             email=form.data['email'],
             password=form.data['password']
         )

@@ -10,6 +10,7 @@ import Pagenotfound from './components/pagenotfound/pagenotfound';
 import Characters from './components/characters/characters';
 import Parties from './components/parties/parties';
 import Profile from './components/profile/profile';
+import ProtectedRoute from './components/auth/ProtectedRoute'
 import { authenticate } from './store/session';
 import { getArchetypeValues } from './store/archetype_value'
 import { getArchetypes } from './store/archetype'
@@ -94,9 +95,9 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/users/:id' exact={true}>
+        <ProtectedRoute path='/users/:id' exact={true}>
           <Profile archetypeValues={archetypeValues} parties={parties} characters={characters} sessionUser={sessionUser} authenticated={authenticated} />
-        </Route>
+        </ProtectedRoute>
         <Route path='/characters' exact={true} >
           <Characters characters={characters} />
         </Route>
