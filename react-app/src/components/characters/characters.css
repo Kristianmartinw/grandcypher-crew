@@ -3,6 +3,7 @@ height: 400px;
 width: 200px;
 border: 10px solid black;
 position: relative;
+background-color: ivory;
 }
 
 .character-name{
@@ -22,4 +23,15 @@ background-color: white;
     object-fit: cover;
     width: inherit;
     height: inherit;
+}
+
+.character-element{
+
+}
+
+.character-specialty{
+}
+
+.character-race{
+
 }

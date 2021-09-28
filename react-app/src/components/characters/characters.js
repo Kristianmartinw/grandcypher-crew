@@ -24,19 +24,21 @@ const Characters = ({ characters }) => {
                     <div className='character-img-container'>
                         <img className='character-img' src={character?.character_url}></img>
                     </div>
-                    <div>
-                        {character?.max_hp}
+                    <div className='character-stats'>
+                        <div>
+                            {character?.max_hp}
+                        </div>
+                        <div>
+                            {character?.max_atk}
+                        </div>
                     </div>
-                    <div>
-                        {character?.max_atk}
-                    </div>
-                    <div>
+                    <div className='character-element'>
                         <img src={elements[character.element_id]?.element_url}></img>
                     </div>
-                    <div>
+                    <div className='character-race'>
                         <img src={races[character.race_id]?.race_url}></img>
                     </div>
-                    <div>
+                    <div className='character-specialty'>
                         <img src={specialties[character?.specialty_id]?.specialty_url}></img>
                     </div>
                 </div>

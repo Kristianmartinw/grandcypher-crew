@@ -22,9 +22,9 @@ const Profile = ({ parties, characters }) => {
     const partyCharacterIds = party?.characters.map(character => character.id)
     const validCharacters = characters?.filter(character => !partyCharacterIds?.includes(character?.id))
 
-    useEffect(() => {
-        setSelectCharacter(validCharacters[0]?.id)
-    })
+    // useEffect(() => {
+    //     setSelectCharacter(validCharacters[0]?.id)
+    // })
 
     const handlePartySubmit = e => {
         e.preventDefault();
