@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './profile.css';
 import { useDispatch, useSelector } from "react-redux";
-import { createNewParty, editParty, deleteParty } from '../../store/party';
+import { createNewParty, editParty, deleteParty, addCharacterParty, deleteCharacterParty } from '../../store/party';
 
-const Profile = ({ parties }) => {
+const Profile = ({ parties, characters }) => {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user);
 
@@ -12,8 +12,14 @@ const Profile = ({ parties }) => {
     const [selectParty, setSelectParty] = useState(false)
     const [changeParty, setChangeParty] = useState(false)
     const [removeParty, setRemoveParty] = useState(false)
+    const [selectCharacter, setSelectCharacter] = useState(1)
+    const [addCharacter, setAddCharacter] = useState(false)
+    const [removeCharacter, setRemoveCharacter] = useState(false)
 
     const party = parties?.find(party => party.id === +selectParty)
+    const character = parties?.find(character => character.id)
+
+    console.log('THIS IS CHARACTER ------>', character)
 
     const handlePartySubmit = e => {
         e.preventDefault();
@@ -35,12 +41,26 @@ const Profile = ({ parties }) => {
             name: partyName
         }
         dispatch(editParty(payload))
+        setChangeParty(false)
     }
 
     const handlePartyRemove = e => {
         e.preventDefault();
         dispatch(deleteParty(selectParty))
         setRemoveParty(false)
+    }
+
+    const handleAddCharacter = e => {
+        e.preventDefault()
+
+        dispatch(addCharacterParty(party.id, selectCharacter))
+        setAddCharacter(false)
+    }
+
+    const handleRemoveCharacter = e => {
+        e.preventDefault();
+        dispatch(deleteCharacterParty(party.id, selectCharacter))
+        setRemoveCharacter(false)
     }
 
     return (
@@ -74,7 +94,7 @@ const Profile = ({ parties }) => {
             {createParty &&
                 <div>
                     <form onSubmit={handlePartySubmit}>
-                        <input value={partyName} onChange={e => setPartyName(e.target.value)} placeholder='Enter party name'></input>
+                        <input value={partyName} onChange={e => setPartyName(e.target.value)} placeholder='Enter party name' Required></input>
                         <button>Submit</button>
                     </form>
                     <button onClick={e => setCreateParty(false)}>Cancel</button>
@@ -84,7 +104,7 @@ const Profile = ({ parties }) => {
             {changeParty &&
                 <div>
                     <form onSubmit={handleEditParty}>
-                        <input onChange={e => setPartyName(e.target.value)}></input>
+                        <input onChange={e => setPartyName(e.target.value)} Required></input>
                         <button>Submit</button>
                     </form>
                     <button onClick={e => setChangeParty(false)}>Cancel</button>
@@ -99,9 +119,39 @@ const Profile = ({ parties }) => {
                     <button onClick={e => setRemoveParty(false)}>Cancel</button>
                 </div>
             }
-            <button>Add character</button>
+            <button onClick={e => setAddCharacter(true)}>Add character</button>
+            {addCharacter && selectParty &&
+                < div >
+                    <form onSubmit={handleAddCharacter}>
+                        <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
+                            {characters.map(character =>
+                                <option value={character.id}>
+                                    {character.name}
+                                </option>
+                            )}
+                        </select>
+                        <button>Submit</button>
+                    </form>
+                    <button onClick={e => setAddCharacter(false)}>Cancel</button>
+                </div>
+            }
             <button>Change Character</button>
-            <button>Remove Character</button>
+            <button onClick={e => setRemoveCharacter(true)}>Remove Character</button>
+            {removeCharacter && selectParty &&
+                <div>
+                    <form onSubmit={handleRemoveCharacter}>
+                        <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
+                            {party.characters.map(character =>
+                                <option value={character.id}>
+                                    {character.name}
+                                </option>
+                            )}
+                        </select>
+                        <button>Submit</button>
+                    </form>
+                    <button onClick={e => setRemoveCharacter(false)}>Cancel</button>
+                </div>
+            }
         </>
     )
 }
