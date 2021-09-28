@@ -12,6 +12,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    ratings = db.relationship('Rating', back_populates='user', cascade='all, delete-orphan')
+
     @property
     def password(self):
         return self.hashed_password
@@ -24,9 +26,15 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
+        ratings = [{
+            "id": rating.id,
+            "partyId": rating.party_id,
+            "value": "rating.value"
+        } for rating in self.ratings]
         return {
             "id": self.id,
             "profile_url": self.profile_url,
             "username": self.username,
-            "email": self.email
+            "email": self.email,
+            "ratings": ratings
         }

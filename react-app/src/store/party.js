@@ -19,10 +19,10 @@ const removeParty = (id) => ({
 
 
 export const getParties = () => async (dispatch) => {
-    const response = await fetch('/api/parties/')
+    const res = await fetch('/api/parties/')
 
-    if (response.ok) {
-        const parties = await response.json()
+    if (res.ok) {
+        const parties = await res.json()
         dispatch(loadParties(parties))
         return
     }
@@ -93,7 +93,45 @@ export const deleteCharacterParty = (partyId, characterId) => async (dispatch) =
         data = await res.json()
         dispatch(updateParty(data))
     }
+}
 
+export const addRating = data => async (dispatch) => {
+
+    const res = await fetch(`/api/ratings/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ value: data.value, party_id: data.partyId, user_id: data.userId })
+    })
+
+    if (res.ok) {
+        const party = await res.json()
+        dispatch(updateParty(party))
+    }
+}
+
+export const editRating = data => async (dispatch) => {
+
+    const res = await fetch(`/api/ratings/${data.ratingId}/`, {
+        body: JSON.stringify(data.value),
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    })
+    if (res.ok) {
+        const party = await res.json()
+        dispatch(updateParty(party))
+    }
+}
+
+export const deleteRating = ratingId => async (dispatch) => {
+
+    const res = await fetch(`/api/ratings/${ratingId}/`, {
+        method: 'DELETE'
+    })
+
+    if (res.ok) {
+        const party = await res.json()
+        dispatch(updateParty(party))
+    }
 }
 
 
