@@ -1,8 +1,33 @@
+.profile-page{
+    margin-top: 22px;
+    background-color: ivory;
+    height: 91.5vh;
+}
+
+.profile-session{
+    display: flex;
+    margin-left: 30px;
+    font-size: 30px;
+    color: black;
+    align-items: center;
+}
+
+.session-name{
+    margin-left: 20px;
+    text-shadow: 0px 0px 1px black;
+    background: -webkit-linear-gradient(goldenrod, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .profile-img{
     object-fit: cover;
     height: 100px;
     width: 100px;
     border-radius: 50%;
+}
+.profile-party-name:hover{
+cursor: pointer;
 }
 .party-characters {
     height: 200px;

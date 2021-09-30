@@ -85,89 +85,89 @@ const Profile = ({ parties, characters }) => {
 
     return (
         <>
-
+            <div></div>
             <div className='profile-page'>
-                This is the profile page
-            </div>
-
-            {sessionUser?.username}
-            <div>
-                <img className='profile-img' src={sessionUser?.profile_url} />
-            </div>
-            <div>
-                {usersParties.map(party =>
-                    <div id={party.id} onClick={e => setSelectParty(e.target.id)}>
-                        {party.name}
+                <div className='profile-session'>
+                    <img className='profile-img' src={sessionUser?.profile_url} />
+                    <span className='session-name'>
+                        {sessionUser?.username}
+                    </span>
+                </div>
+                <div>
+                    {usersParties.map(party =>
+                        <div id={party.id} className='profile-party-name' onClick={e => setSelectParty(e.target.id)}>
+                            {party.name}
+                        </div>
+                    )}
+                    {selectParty &&
+                        party?.characters.map(character =>
+                            <img id={character.id} className='party-characters' onClick={e => setCurrentCharacter(e.target.id)} src={character.character_url} />
+                        )
+                    }
+                </div>
+                <button onClick={e => setCreateParty(true)}>Create Party</button>
+                {createParty &&
+                    <div>
+                        <form onSubmit={handlePartySubmit}>
+                            <input value={partyName} onChange={e => setPartyName(e.target.value)} placeholder='Enter party name' Required></input>
+                            <button>Submit</button>
+                        </form>
+                        <button onClick={e => setCreateParty(false)}>Cancel</button>
                     </div>
-                )}
-                {selectParty &&
-                    party?.characters.map(character =>
-                        <img id={character.id} className='party-characters' onClick={e => setCurrentCharacter(e.target.id)} src={character.character_url} />
-                    )
                 }
+                <button onClick={e => setChangeParty(true)}>Edit Party</button>
+                {changeParty &&
+                    <div>
+                        <form onSubmit={handleEditParty}>
+                            <input onChange={e => setPartyName(e.target.value)} Required></input>
+                            <button>Submit</button>
+                        </form>
+                        <button onClick={e => setChangeParty(false)}>Cancel</button>
+                    </div>
+                }
+                < button onClick={e => setRemoveParty(true)}>Delete Party</button>
+                {removeParty &&
+                    <div>
+                        <form onSubmit={handlePartyRemove}>
+                            <button>Delete</button>
+                        </form>
+                        <button onClick={e => setRemoveParty(false)}>Cancel</button>
+                    </div>
+                }
+                <button onClick={handleDefaultAddCharacter} disabled={party?.characters.length === 3}>Add character</button>
+                {addCharacter && selectParty &&
+                    < div >
+                        <form onSubmit={handleAddCharacter}>
+                            <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
+                                {validCharacters.map(character =>
+                                    <option value={character.id}>
+                                        {character.name}
+                                    </option>
+                                )}
+                            </select>
+                            <button>Submit</button>
+                        </form>
+                        <button onClick={e => setAddCharacter(false)}>Cancel</button>
+                    </div>
+                }
+                <button onClick={handleDefaultEditCharacter} disabled={!currentCharacter}>Change Character</button>
+                {editCharacter &&
+                    <div>
+                        <form onSubmit={handleEditCharacter}>
+                            <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
+                                {validCharacters.map(character =>
+                                    <option value={character.id}>
+                                        {character.name}
+                                    </option>
+                                )}
+                            </select>
+                            <button>Submit</button>
+                        </form>
+                        <button onClick={e => setEditCharacter(false)}>Cancel</button>
+                    </div>
+                }
+                <button onClick={e => handleRemoveCharacter()} disabled={!currentCharacter}>Remove Character</button>
             </div>
-            <button onClick={e => setCreateParty(true)}>Create Party</button>
-            {createParty &&
-                <div>
-                    <form onSubmit={handlePartySubmit}>
-                        <input value={partyName} onChange={e => setPartyName(e.target.value)} placeholder='Enter party name' Required></input>
-                        <button>Submit</button>
-                    </form>
-                    <button onClick={e => setCreateParty(false)}>Cancel</button>
-                </div>
-            }
-            <button onClick={e => setChangeParty(true)}>Edit Party</button>
-            {changeParty &&
-                <div>
-                    <form onSubmit={handleEditParty}>
-                        <input onChange={e => setPartyName(e.target.value)} Required></input>
-                        <button>Submit</button>
-                    </form>
-                    <button onClick={e => setChangeParty(false)}>Cancel</button>
-                </div>
-            }
-            < button onClick={e => setRemoveParty(true)}>Delete Party</button>
-            {removeParty &&
-                <div>
-                    <form onSubmit={handlePartyRemove}>
-                        <button>Delete</button>
-                    </form>
-                    <button onClick={e => setRemoveParty(false)}>Cancel</button>
-                </div>
-            }
-            <button onClick={handleDefaultAddCharacter} disabled={party?.characters.length === 4}>Add character</button>
-            {addCharacter && selectParty &&
-                < div >
-                    <form onSubmit={handleAddCharacter}>
-                        <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
-                            {validCharacters.map(character =>
-                                <option value={character.id}>
-                                    {character.name}
-                                </option>
-                            )}
-                        </select>
-                        <button>Submit</button>
-                    </form>
-                    <button onClick={e => setAddCharacter(false)}>Cancel</button>
-                </div>
-            }
-            <button onClick={handleDefaultEditCharacter} disabled={!currentCharacter}>Change Character</button>
-            {editCharacter &&
-                <div>
-                    <form onSubmit={handleEditCharacter}>
-                        <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
-                            {validCharacters.map(character =>
-                                <option value={character.id}>
-                                    {character.name}
-                                </option>
-                            )}
-                        </select>
-                        <button>Submit</button>
-                    </form>
-                    <button onClick={e => setEditCharacter(false)}>Cancel</button>
-                </div>
-            }
-            <button onClick={e => handleRemoveCharacter()} disabled={!currentCharacter}>Remove Character</button>
         </>
     )
 }

@@ -2,14 +2,48 @@
     display: flex;
     justify-content: space-around;
     background-color: ivory;
-    border-bottom: 2px solid black;
+    border-width: 5px;
+    border-style: solid;
+    border-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png') 5% round;
+    align-items: center;
+}
+
+.about-us{
+    border-radius: 2em;
+    padding: 7px;
+    background-color: rgba(0, 0, 0, .7);
+    text-shadow: 0px 0px 3px 2px black ;
+    color: goldenrod;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 15px;
+    right:0;
+    margin-right: 20px;
+}
+
+.about-us:hover{
+    cursor: pointer;
+}
+
+.welcome-text{
+    text-shadow: 0px 0px 1px black;
+    background: -webkit-linear-gradient(goldenrod, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.logo{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 500px;
 }
 
 .nav-url{
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid green;
+    border: .5px solid black;
     height: 40px;
     width: 40px;
-
 }

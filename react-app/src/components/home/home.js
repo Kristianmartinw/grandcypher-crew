@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css';
 import Splash from '../splash/splash'
+import Profile from '../profile/profile';
 
 const Home = ({ sessionUser, authenticated }) => {
 
