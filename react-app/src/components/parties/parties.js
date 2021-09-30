@@ -37,31 +37,34 @@ const Parties = ({ parties }) => {
 
     return (
         <>
+            <div className='parties-background'>
 
-            <div className='parties-page'>
-                This is the parties page
+                <div className='parties-page'>
+                    {parties.map(party =>
+                        party?.characters.length === 3 &&
+                        <>
+                            <div className='party'>
+                                <div className='party-name'>{party?.name}</div>
+                                {sessionUser &&
+                                    <div className='rating-stars'>
+                                        <i id={`1-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 1 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                        <i id={`2-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 2 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                        <i id={`3-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 3 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                        <i id={`4-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 4 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                        <i id={`5-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 5 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                    </div>
+                                }
+                                <div className='party-box'>
+                                    {party.characters.map(character =>
+                                        <img className='party-characters' src={character?.character_url}></img>
+                                    )}
+                                </div>
+                            </div>
+                        </>
+                    )}
+                </div>
             </div>
-            <div className='user-party'>
-                {parties.map(party =>
-                    <>
-                        <div>
-                            {party?.name}
-                        </div>
-                        <div>
-                            <i id={`1-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 1 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                            <i id={`2-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 2 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                            <i id={`3-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 3 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                            <i id={`4-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 4 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                            <i id={`5-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 5 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                        </div>
-                        {
-                            party.characters.map(character =>
-                                <img className='party-characters' src={character?.character_url}></img>
-                            )
-                        }
-                    </>
-                )}
-            </div>
+
         </>
     )
 }

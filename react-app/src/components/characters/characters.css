@@ -1,14 +1,33 @@
+.characters-page{
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y:scroll;
+    justify-content: space-around;
+    height: 90vh;
+    margin-top: 15px;
+    background-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png');
+}
+
 .character-card{
-height: 400px;
-width: 200px;
-border: 10px solid black;
-position: relative;
-background-color: ivory;
+    height: 400px;
+    min-width: 200px;
+    z-index: 1;
+    position: relative;
+    border-width: 20px;
+    border-style: solid;
+    border-image: url(https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png) 10% fill;
+    background-color: rgb(255, 255, 240);
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 5px 3px black ;
 }
 
 .character-name{
-text-align: center;
-background-color: white;
+    text-align: center;
+    width: 114%;
+    margin-left: -11px;
+    color:white;
+    background-color: rgb(0, 0, 0, .6);
+    text-shadow: 0px 0px 3px black;
 }
 
 .character-img-container{
@@ -16,22 +35,24 @@ background-color: white;
     height: 100%;
     position: absolute;
     top:0px;
-    padding: 1.5em 0 1em;
 }
 
 .character-img{
     object-fit: cover;
-    width: inherit;
+    width: 115%;
     height: inherit;
+    position: relative;
+    margin-left: -10px;
+    top: 20px;
+}
+
+.character-element-container{
+    position: absolute;
+    width: 5px;
+    bottom: -18px;
+    left: -15px;
 }
 
 .character-element{
-
-}
-
-.character-specialty{
-}
-
-.character-race{
-
+    width: 40px;
 }

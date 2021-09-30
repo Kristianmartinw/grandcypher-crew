@@ -14,35 +14,20 @@ const Characters = ({ characters }) => {
     return (
         <>
             <div className='characters-page'>
-                This is characters page
+                {characters.map(character =>
+                    <div className='character-card'>
+                        <div className='character-name'>
+                            {character?.name}
+                        </div>
+                        <div className='character-img-container'>
+                            <img id={`character-${character?.id}`} className='character-img' src={character?.character_url}></img>
+                        </div>
+                        <div className='character-element-container'>
+                            <img className='character-element' src={elements[character.element_id]?.element_url}></img>
+                        </div>
+                    </div>
+                )}
             </div>
-            {characters.map(character =>
-                <div className='character-card'>
-                    <div className='character-name'>
-                        {character?.name}
-                    </div>
-                    <div className='character-img-container'>
-                        <img className='character-img' src={character?.character_url}></img>
-                    </div>
-                    <div className='character-stats'>
-                        <div>
-                            {character?.max_hp}
-                        </div>
-                        <div>
-                            {character?.max_atk}
-                        </div>
-                    </div>
-                    <div className='character-element'>
-                        <img src={elements[character.element_id]?.element_url}></img>
-                    </div>
-                    <div className='character-race'>
-                        <img src={races[character.race_id]?.race_url}></img>
-                    </div>
-                    <div className='character-specialty'>
-                        <img src={specialties[character?.specialty_id]?.specialty_url}></img>
-                    </div>
-                </div>
-            )}
         </>
     )
 }

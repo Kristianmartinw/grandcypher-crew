@@ -10,11 +10,15 @@ function Navbar({ sessionUser, authenticated }) {
     return (
         <div className='nav-container'>
 
-            <button>
+            {/* <button>
                 <NavLink to='/' exact={true} activeClassName='active'>
                     Home
                 </NavLink>
-            </button>
+            </button> */}
+            <img className='logo' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/gbf-logo.png'}></img>
+            <NavLink to='/about-me' className='about-us'>
+                Click here to find out more <span className='about-me-link'>about me</span>
+            </NavLink>
             <button>
                 <NavLink to='/parties' exact={true} activeClassName='active'>
                     Browse Parties
@@ -25,30 +29,32 @@ function Navbar({ sessionUser, authenticated }) {
                     Browse Characters
                 </NavLink>
             </button>
-            {!authenticated ?
-                <>
-                    <button>
-                        <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                            Sign Up
+            {
+                !authenticated ?
+                    <>
+                        <button>
+                            <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                                Sign Up
+                            </NavLink>
+                        </button>
+                        <button>
+                            <NavLink to='/login' exact={true} activeClassName='active'>
+                                Login
+                            </NavLink>
+                        </button>
+                        <DemoButton />
+                    </>
+                    :
+                    <>
+                        <span className="welcome-text">Welcome back, <span id="username">{sessionUser?.username}</span></span>
+                        <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
+                            <img className='nav-url' src={sessionUser?.profile_url} />
                         </NavLink>
-                    </button>
-                    <button>
-                        <NavLink to='/login' exact={true} activeClassName='active'>
-                            Login
-                        </NavLink>
-                    </button>
-                    <DemoButton />
-                </>
-                :
-                <>
-                    <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
-                        <img className='nav-url' src={sessionUser?.profile_url} />
-                    </NavLink>
-                    <LogoutButton />
-                </>
+                        <LogoutButton />
+                    </>
             }
 
-        </div>
+        </div >
     );
 }
 

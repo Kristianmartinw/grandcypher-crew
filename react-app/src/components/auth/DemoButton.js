@@ -11,7 +11,7 @@ const DemoButton = () => {
     let password = 'password'
     let demoLogin = () => {
         dispatch(sessionActions.login(credential, password))
-        history.push('/')
+        history.push('/users/:id')
     }
 
     return (

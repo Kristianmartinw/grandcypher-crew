@@ -6,7 +6,8 @@ import SignUpForm from './components/auth/SignUpForm';
 import Navbar from './components/navbar/navbar';
 import Home from './components/home/home';
 import Splash from './components/splash/splash'
-import Pagenotfound from './components/pagenotfound/pagenotfound';
+import PageNotFound from './components/404/404'
+import Aboutme from './components/Aboutme/aboutMe'
 import Characters from './components/characters/characters';
 import Parties from './components/parties/parties';
 import Profile from './components/profile/profile';
@@ -83,9 +84,9 @@ function App() {
     <BrowserRouter>
       <Navbar sessionUser={sessionUser} authenticated={authenticated} />
       <Switch>
-        <Route path='/' exact={true} >
+        {/* <Route path='/' exact={true} >
           <Home sessionUser={sessionUser} authenticated={authenticated} />
-        </Route>
+        </Route> */}
         <Route path='/' exact={true} >
           <Splash />
         </Route>
@@ -104,8 +105,11 @@ function App() {
         <Route path='/parties' exact={true} >
           <Parties parties={parties} />
         </Route>
+        <Route path='/about-me'>
+          <Aboutme />
+        </Route>
         <Route>
-          <Pagenotfound />
+          <PageNotFound />
         </Route>
       </Switch>
     </BrowserRouter>
