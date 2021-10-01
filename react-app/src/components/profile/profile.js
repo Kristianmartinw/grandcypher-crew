@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './profile.css';
 import { useDispatch, useSelector } from "react-redux";
 import CharacterCard from '../characters/CharacterCard';
@@ -31,6 +31,7 @@ const Profile = ({ parties, characters, elements }) => {
     const partyCharacterIds = party?.characters.map(character => character.id)
     const validCharacters = characters?.filter(character => !partyCharacterIds?.includes(character?.id))
     const [selectCharacter, setSelectCharacter] = useState(validCharacters[0]?.id)
+    const currentCharacterName = characters[currentCharacter - 1]?.name
 
     const handlePartySubmit = e => {
         e.preventDefault();
@@ -146,7 +147,7 @@ const Profile = ({ parties, characters, elements }) => {
                         {usersParties.length > 0 && selectParty &&
                             <button onClick={handleShowEditParty}>Edit Party</button>
                         }
-                        {changeParty &&
+                        {changeParty && selectParty &&
                             <div>
                                 <form onSubmit={handleEditParty}>
                                     <input maxLength={15} onChange={e => setPartyName(e.target.value)} placeholder={partyName} required></input>
@@ -158,8 +159,8 @@ const Profile = ({ parties, characters, elements }) => {
                         {usersParties.length > 0 && selectParty &&
                             <button onClick={e => setRemoveParty(true)}>Delete Party</button>
                         }
-                        {removeParty &&
-                            <div>
+                        {removeParty && selectParty &&
+                            < div >
                                 <form onSubmit={handlePartyRemove}>
                                     <button>Delete</button>
                                 </form>
@@ -171,7 +172,12 @@ const Profile = ({ parties, characters, elements }) => {
                         <>
                             <div className='profile-party'>
                                 <div className='party-name'>{party?.name}</div>
-                                {showElementModal && elementSetter === 'element-one' &&
+                                {currentCharacterName &&
+                                    <div className='selected-character-name'>
+                                        Selected Character: {currentCharacterName}
+                                    </div >
+                                }
+                                {/* {showElementModal && elementSetter === 'element-one' &&
                                     <ElementSelectModal elementSetter={setElementOne} elements={elements} setShowModal={setShowElementModal} />
                                 }
                                 {showElementModal && elementSetter === 'element-two' &&
@@ -188,8 +194,8 @@ const Profile = ({ parties, characters, elements }) => {
                                 }
                                 {showElementModal && elementSetter === 'element-six' &&
                                     <ElementSelectModal elementSetter={setElementSix} elements={elements} setShowModal={setShowElementModal} />
-                                }
-                                <div className='element-selector'>
+                                } */}
+                                {/* <div className='element-selector'>
                                     <div onClick={handleSelectElement} className='element-one'>
                                         {elementOne &&
                                             <img src={elementOne}></img>
@@ -220,15 +226,15 @@ const Profile = ({ parties, characters, elements }) => {
                                             <img src={elementSix}></img>
                                         }
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className='party-box'>
-                                    <div onClick={e => setCurrentCharacter(party?.characters[0]?.id)}>
+                                    <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[0]?.id)}>
                                         <CharacterCard character={party?.characters[0]} />
                                     </div>
-                                    <div onClick={e => setCurrentCharacter(party?.characters[1]?.id)}>
+                                    <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[1]?.id)}>
                                         <CharacterCard character={party?.characters[1]} />
                                     </div>
-                                    <div onClick={e => setCurrentCharacter(party?.characters[2]?.id)}>
+                                    <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[2]?.id)}>
                                         <CharacterCard character={party?.characters[2]} />
                                     </div>
                                 </div>
@@ -237,8 +243,8 @@ const Profile = ({ parties, characters, elements }) => {
                     }
                 </div>
                 <div className='character-buttons'>
-                    {selectParty &&
-                        <button className='character-button' onClick={handleDefaultAddCharacter} disabled={party?.characters.length === 3}>Add character</button>
+                    {selectParty && party?.characters.length < 3 &&
+                        <button className='character-button' onClick={handleDefaultAddCharacter} >Add character</button>
                     }
                     {addCharacter && selectParty &&
                         < div >
@@ -255,7 +261,7 @@ const Profile = ({ parties, characters, elements }) => {
                             <button onClick={e => setAddCharacter(false)}>Cancel</button>
                         </div>
                     }
-                    {partyCharacterIds > 0 && currentCharacter &&
+                    {currentCharacter && selectParty &&
                         <button className='character-button' onClick={handleDefaultEditCharacter} disabled={!currentCharacter}>Change Character</button>
                     }
                     {editCharacter &&
@@ -273,7 +279,7 @@ const Profile = ({ parties, characters, elements }) => {
                             <button onClick={e => setEditCharacter(false)}>Cancel</button>
                         </div>
                     }
-                    {partyCharacterIds > 0 && currentCharacter &&
+                    {currentCharacter && selectParty &&
                         <button className='character-button' onClick={e => handleRemoveCharacter()} disabled={!currentCharacter}>Remove Character</button>
                     }
                 </div>
