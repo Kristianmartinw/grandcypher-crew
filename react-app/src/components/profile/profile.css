@@ -1,6 +1,6 @@
 .profile-page{
     margin-top: 22px;
-    height: 91.5vh;
+    height: 75vh;
     width: 800px;
     margin-left: 120px;
     margin-top: 55px;
@@ -15,6 +15,8 @@
 }
 
 .session-name{
+    font-size: 40px;
+    border-bottom: 2px solid black;
     margin-left: 20px;
     text-shadow: 0px 0px 1px black;
     background: -webkit-linear-gradient(goldenrod, black);
@@ -22,17 +24,95 @@
     -webkit-text-fill-color: transparent;
 }
 
+.party-buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 640px;
+}
+
+
 .profile-img{
     object-fit: cover;
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     border-radius: 50%;
-    border: 2px solid black
+    border: 2px solid black;
+    margin-bottom: 10px;
 }
+
+.party-name {
+    text-align: center;
+}
+
+.parties-info {
+    position: relative;
+    background-color: rgba(255, 255, 240, .3);
+    width: fit-content;
+    backdrop-filter: blur(6px);
+    border-radius: 4em;
+}
+.select-party-text {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    width: 650px;
+}
+
+.profile-party-names{
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    width: 640px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-party-name{
+  background-color: rgba(255, 255, 240, .8);
+  width: fit-content;
+  height: fit-content;
+  border-width: 2px;
+  border-style: solid;
+  border-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png') 5% stretch;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 3px;
+  border-radius: 30em;
+}
+
 .profile-party-name:hover{
 cursor: pointer;
+color: rgb(80, 139, 177);
+  text-shadow: 0px 0px .5px black;
 }
-.party-characters {
-    height: 200px;
-    width:200px
+
+.element-selector {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 7px;
+}
+
+.element-selector > div {
+    height: 42px;
+    width: 42px;
+    background-color: rgba(0, 0, 0, .7);
+    border: 3px solid black;
+    border-radius: 50%;
+}
+
+.element-selector img {
+    height: 36px;
+    width: 36px;
+}
+
+.profile-party{
+    width: 620px;
+
+}
+
+.character-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 630px;
 }

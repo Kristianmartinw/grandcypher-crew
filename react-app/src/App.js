@@ -88,7 +88,7 @@ function App() {
           <Splash />
         </Route>
         <ProtectedRoute path='/users/:id' exact={true}>
-          <Profile archetypeValues={archetypeValues} parties={parties} characters={characters} sessionUser={sessionUser} authenticated={authenticated} />
+          <Profile archetypeValues={archetypeValues} parties={parties} elements={elements} characters={characters} sessionUser={sessionUser} authenticated={authenticated} />
         </ProtectedRoute>
         <Route path='/characters' exact={true} >
           <Characters characters={characters} />
@@ -103,7 +103,7 @@ function App() {
           <PageNotFound />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 

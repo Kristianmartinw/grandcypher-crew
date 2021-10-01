@@ -19,6 +19,21 @@
     height: 81vh;
     overflow-y: scroll;
 }
+
+.empty-party-alert{
+    position: relative;
+    display: flex;
+    border-width: 5px;
+    border-style: solid;
+    border-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png') 5% round;
+    left: 190px;
+    flex-direction: column;
+    justify-content:  flex-end;
+    text-align: center;
+    width: 500px;
+    background-color: ivory;
+}
+
 .party-name{
     margin-top: 10px;
     font-size: 25px;
