@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import DemoButton from '../auth/DemoButton';
 import LogoutButton from '../auth/LogoutButton';
+import SignupModal from '../auth/signUpModal';
+import LoginModal from '../auth/loginModal';
 import './navbar.css';
 
 function Navbar({ sessionUser, authenticated }) {
@@ -9,12 +11,6 @@ function Navbar({ sessionUser, authenticated }) {
 
     return (
         <div className='nav-container'>
-
-            {/* <button>
-                <NavLink to='/' exact={true} activeClassName='active'>
-                    Home
-                </NavLink>
-            </button> */}
             <img className='logo' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/gbf-logo.png'}></img>
             <NavLink to='/about-me' className='about-us'>
                 Click here to find out more <span className='about-me-link'>about me</span>
@@ -32,16 +28,8 @@ function Navbar({ sessionUser, authenticated }) {
             {
                 !authenticated ?
                     <>
-                        <button>
-                            <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                                Sign Up
-                            </NavLink>
-                        </button>
-                        <button>
-                            <NavLink to='/login' exact={true} activeClassName='active'>
-                                Login
-                            </NavLink>
-                        </button>
+                        <SignupModal />
+                        <LoginModal />
                         <DemoButton />
                     </>
                     :

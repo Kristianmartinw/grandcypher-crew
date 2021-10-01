@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import './parties.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addRating, deleteRating, editParty, editRating } from '../../store/party'
+import { addRating, deleteRating, editRating } from '../../store/party'
+import CharacterCard from '../characters/CharacterCard';
 
 const Parties = ({ parties }) => {
 
@@ -37,34 +38,31 @@ const Parties = ({ parties }) => {
 
     return (
         <>
-            <div className='parties-background'>
-
-                <div className='parties-page'>
-                    {parties.map(party =>
-                        party?.characters.length === 3 &&
-                        <>
-                            <div className='party'>
-                                <div className='party-name'>{party?.name}</div>
-                                {sessionUser &&
-                                    <div className='rating-stars'>
-                                        <i id={`1-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 1 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                        <i id={`2-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 2 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                        <i id={`3-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 3 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                        <i id={`4-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 4 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                        <i id={`5-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 5 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                    </div>
-                                }
-                                <div className='party-box'>
-                                    {party.characters.map(character =>
-                                        <img className='party-characters' src={character?.character_url}></img>
-                                    )}
+            <img className='parties-background' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png'}></img>
+            <div className='parties-page'>
+                {parties.map(party =>
+                    party?.characters.length === 3 &&
+                    <>
+                        <div className='party'>
+                            <div className='party-name'>{party?.owner_name}{party?.name}</div>
+                            {sessionUser &&
+                                <div className='rating-stars'>
+                                    <i id={`1-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 1 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                    <i id={`2-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 2 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                    <i id={`3-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 3 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                    <i id={`4-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 4 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                    <i id={`5-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 5 ? 'fas fa-star' : 'far fa-star'}`}></i>
                                 </div>
+                            }
+                            <div className='party-box'>
+                                {party.characters.map(character =>
+                                    <CharacterCard character={character} />
+                                )}
                             </div>
-                        </>
-                    )}
-                </div>
+                        </div>
+                    </>
+                )}
             </div>
-
         </>
     )
 }

@@ -84,17 +84,8 @@ function App() {
     <BrowserRouter>
       <Navbar sessionUser={sessionUser} authenticated={authenticated} />
       <Switch>
-        {/* <Route path='/' exact={true} >
-          <Home sessionUser={sessionUser} authenticated={authenticated} />
-        </Route> */}
         <Route path='/' exact={true} >
           <Splash />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <Route path='/login' exact={true}>
-          <LoginForm />
         </Route>
         <ProtectedRoute path='/users/:id' exact={true}>
           <Profile archetypeValues={archetypeValues} parties={parties} characters={characters} sessionUser={sessionUser} authenticated={authenticated} />

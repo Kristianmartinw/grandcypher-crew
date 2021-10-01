@@ -4,9 +4,13 @@ body {
   background-color: blanchedalmond;
   margin-left: 25em;
   margin-right: 25em;
-  border: 2px solid black;
   overflow: hidden;
   background-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/background.jpg');
+}
+
+body * {
+  font-family: "Gideon Roman";
+
 }
 
 * {
@@ -21,10 +25,22 @@ button {
   background: -webkit-linear-gradient(goldenrod, black);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+a:hover {
+  cursor: pointer;
+  color: goldenrod;
 }
 
 button:hover {
   cursor: pointer;
+  color: goldenrod;
 }
 
 ::-webkit-scrollbar {
@@ -39,7 +55,7 @@ button:hover {
 ::-webkit-scrollbar-thumb {
 border: 1px solid gray;
 border-radius: 30em;
-background: #555;
+background: rgba(85, 85, 85, .8);
 cursor: grab;
 }
 
