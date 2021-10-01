@@ -85,7 +85,7 @@ const Profile = ({ parties, characters }) => {
 
     return (
         <>
-            <div></div>
+            <img className='parties-background' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png'}></img>
             <div className='profile-page'>
                 <div className='profile-session'>
                     <img className='profile-img' src={sessionUser?.profile_url} />
