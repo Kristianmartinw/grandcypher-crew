@@ -138,7 +138,7 @@ const Profile = ({ parties, characters, elements }) => {
                         {createParty &&
                             <div>
                                 <form onSubmit={handlePartySubmit}>
-                                    <input maxLength={15} value={partyName} onChange={e => setPartyName(e.target.value)} placeholder='Enter party name' required></input>
+                                    <input maxLength={10} value={partyName} onChange={e => setPartyName(e.target.value)} placeholder='Enter party name' required></input>
                                     <button>Submit</button>
                                 </form>
                                 <button onClick={e => setCreateParty(false)}>Cancel</button>
@@ -150,7 +150,7 @@ const Profile = ({ parties, characters, elements }) => {
                         {changeParty && selectParty &&
                             <div>
                                 <form onSubmit={handleEditParty}>
-                                    <input maxLength={15} onChange={e => setPartyName(e.target.value)} placeholder={partyName} required></input>
+                                    <input maxLength={10} onChange={e => setPartyName(e.target.value)} placeholder={partyName} required></input>
                                     <button>Submit</button>
                                 </form>
                                 <button onClick={e => setChangeParty(false)}>Cancel</button>

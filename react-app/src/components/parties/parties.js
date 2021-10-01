@@ -40,9 +40,9 @@ const Parties = ({ parties }) => {
         parties.length === 0 ?
             <>
                 <img className='parties-background' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png'}></img>
-                <div className='empty-party-alert'>
+                {/* <div className='empty-party-alert'>
                     The skies are empty, how about signing up here and making the first party
-                </div>
+                </div> */}
             </>
             :
             <>
