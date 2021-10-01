@@ -11,20 +11,22 @@
 }
 
 .about-us{
-    border-radius: 2em;
     padding: 3px;
     background-color: ivory;
-    border-width: 5px;
-    border-style: solid;
-    border-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png') 5% round;
-    text-shadow: 0px 0px 3px 2px black ;
-    color: black;
+  width: fit-content;
+  height: fit-content;
+  border-width: 4px;
+  border-style: solid;
+  border-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png') 5% stretch;
+  text-decoration: none;
+  font-size: 20px;
+  text-shadow: 0px 0px 1px black;
     position: absolute;
     bottom: 0;
     margin-bottom: 12px;
     right:0;
     margin-right: 40%;
-    margin-left: 40%;text-shadow: 0px 0px 0px black;
+    margin-left: 40%;
 }
 
 .about-us:hover{
@@ -37,7 +39,116 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/*
+.cloud-one{
+    position: absolute;
+    left: 5;
+    top: 700px;
+    animation: moveFirst 270s linear infinite;
+    width: 400px;
+    z-index: -1;
+}
 
+.cloud-two {
+    position: absolute;
+    right: 5;
+    top: 50px;
+    animation: move 400s linear infinite;
+    width: 600px;
+    z-index: -1;
+  }
+
+  .ship {
+    position: absolute;
+    animation-name: ship;
+    left: -200;
+    top: 50px;
+    animation: ship 180s linear infinite;
+    width: 800px;
+    z-index: -2;
+  }
+
+  .ship-two {
+    position: absolute;
+    right: 5;
+    top: 500px;
+    animation: ship-two 120s linear infinite;
+    width: 500px;
+    z-index: -3;
+  }
+
+  .ship-three {
+    position: absolute;
+    right: 5;
+    top: 300px;
+    animation: ship-three 250s linear infinite;
+    width: 800px;
+    z-index: -1;
+
+  }
+
+  .ship-four {
+    position: absolute;
+    right: 5;
+    top: 700px;
+    animation: ship-four 100s linear infinite;
+    width: 300px;
+    z-index: -2;
+  }
+
+  @keyframes moveFirst {
+    from {
+      left: -450px;
+    }
+    to {
+      left: 100%;
+    }
+  }
+
+@keyframes move {
+    from {
+      right: -1600px;
+    }
+    to {
+      right: 100%;
+    }
+  }
+
+  @keyframes ship {
+    from {
+      left: -2000px;
+    }
+    to {
+      left: 100%;
+    }
+  }
+
+  @keyframes ship-two {
+    from {
+      right: -4500px;
+    }
+    to {
+      right: 100%;
+    }
+  }
+
+  @keyframes ship-three {
+    from {
+      right: -4500px;
+    }
+    to {
+      right: 100%;
+    }
+  }
+
+  @keyframes ship-four {
+    from {
+      left: -25000px;
+    }
+    to {
+      left: 100%;
+    }
+  } */
 
 .logo{
     position: absolute;

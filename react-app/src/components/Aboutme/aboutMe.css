@@ -7,6 +7,9 @@
   top: 60px;
   height: 75vh;
   background-color: rgba(255, 255, 240, .8);
+  border-width: 5px;
+  border-style: solid;
+  border-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png') 5% stretch;
 }
 
 .about-me-title{
@@ -25,7 +28,6 @@
   flex-direction: column;
   align-content: space-between;
   border-radius: 3em;
-  height: 800px;
 }
 
 
@@ -83,5 +85,13 @@
 }
 
 .readme-link {
-  color: rgb(95, 95, 194);
+  background-color: rgba(255, 255, 240, .8);
+  width: fit-content;
+  height: fit-content;
+  border-width: 2px;
+  border-style: solid;
+  border-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png') 5% stretch;
+  text-decoration: none;
+  font-size: 18px;
+  text-shadow: 0px 0px 1px black;
 }

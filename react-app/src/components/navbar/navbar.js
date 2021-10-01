@@ -12,6 +12,12 @@ function Navbar({ sessionUser, authenticated }) {
     return (
         <div className='nav-container'>
             <img className='logo' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/gbf-logo.png'}></img>
+            {/* <img className='cloud-one' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/cloud.png'}></img>
+            <img className='cloud-two' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/cloud-2.png'}></img>
+            <img className='ship' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/ship.png'}></img>
+            <img className='ship-two' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/ship-2.png'}></img>
+            <img className='ship-three' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/ship-3.png'}></img>
+            <img className='ship-four' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/ship-4.png'}></img> */}
             <NavLink to='/about-me' className='about-us'>
                 Click here to find out more <span className='about-me-link'>about me</span>
             </NavLink>

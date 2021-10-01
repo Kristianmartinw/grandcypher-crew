@@ -17,8 +17,8 @@ function Splash() {
 
     return (
         <div className="splashContainer">
-            <h1 id="splashTitle">Grandcypher Crew Builder</h1>
-            <h2 id="splashSub">Party building made easier so you can focus on soaring the limitless blue.</h2>
+            <h1 className="splashTitle">Grandcypher Crew Builder</h1>
+            <h2 className="splashSub">Party building made easier so you can focus on soaring the limitless blue</h2>
             <div className="splashLinkDiv">
                 <Link to="/sign-up" className="splashLinks">Sign up</Link>
                 <Link to="/login" className="splashLinks">Log in</Link>
