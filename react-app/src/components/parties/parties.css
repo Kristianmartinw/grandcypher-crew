@@ -8,9 +8,9 @@
 }
 
 .parties-page{
-    margin-top: 42px;
+    /* margin-top: 42px; */
     width: 700px;
-    margin-left: 120px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,6 +32,21 @@
     text-align: center;
     width: 500px;
     background-color: ivory;
+}
+
+.party-scroll {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    z-index: -1;
+    top: -8%;
+    left: 0;
+    background: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png') center no-repeat;
+    background-size: 57% 100%;
+    background-position: top;
+    height: 120%;
+    width: 100%;
 }
 
 .party-name{

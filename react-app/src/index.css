@@ -1,3 +1,32 @@
+@media screen and (max-width: 1280px) {
+  .party-scroll {
+    background-size: 100% 100%;
+  }
+  .nav-containception {
+    width: fit-content;
+  }
+  .nav-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+  }
+  .logo {
+    display: none;
+  }
+  .something {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .about-us {
+    width: 30%;
+    left: -5%;
+
+
+  }
+}
+
 body {
   font-size: 20px;
   background-color: blanchedalmond;

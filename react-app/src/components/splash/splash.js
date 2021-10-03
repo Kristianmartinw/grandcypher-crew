@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DemoButton from "../auth/DemoButton";
 import { useDispatch, useSelector } from 'react-redux'
 import LoginModal from "../auth/loginModal";
+import SignUpModal from "../auth/signUpModal"
 import * as sessionActions from '../../store/session';
 import "./splash.css"
 
@@ -20,11 +22,11 @@ function Splash() {
             <h1 className="splashTitle">Grandcypher Crew Builder</h1>
             <h2 className="splashSub">Party building made easier so you can focus on soaring the limitless blue</h2>
             <div className="splashLinkDiv">
-                <Link to="/sign-up" className="splashLinks">Sign up</Link>
-                <Link to="/login" className="splashLinks">Log in</Link>
+                <SignUpModal />
+                <LoginModal />
                 <Link to="/parties" className="splashLinks">View Parties</Link>
                 <Link to="/characters" className="splashLinks">View Characters</Link>
-                <a className="splashLinks" onClick={demoLogin}>Demo</a>
+                <DemoButton />
             </div>
         </div>
     )

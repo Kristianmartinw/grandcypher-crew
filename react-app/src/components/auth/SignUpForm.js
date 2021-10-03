@@ -18,8 +18,11 @@ const SignUpForm = ({ setShowModal }) => {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
+      } else {
+        setShowModal(false)
       }
-      setShowModal(false)
+    } else {
+      setErrors(['Passwords do not match'])
     }
   };
 

@@ -3,7 +3,6 @@ import { Modal } from '../../context/modal';
 import ElementSelect from './elementSelect'
 
 function ElementSelectModal({ elementSetter, elements, setShowModal }) {
-    console.log('HERE AND THERE', elementSetter)
     return (
         <>
 

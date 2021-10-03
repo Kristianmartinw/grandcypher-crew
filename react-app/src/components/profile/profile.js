@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './profile.css';
 import { useDispatch, useSelector } from "react-redux";
 import CharacterCard from '../characters/CharacterCard';
@@ -86,14 +86,13 @@ const Profile = ({ parties, characters, elements }) => {
     const handleAddCharacter = e => {
         e.preventDefault()
 
-        console.log('THIS IS SELECTED CHAR', selectCharacter)
         dispatch(addCharacterParty(party.id, selectCharacter))
         setAddCharacter(false)
     }
 
     const handleEditCharacter = async e => {
         e.preventDefault()
-        console.log("THIS IS MY CURRENTCHARACTER", currentCharacter)
+
         await dispatch(deleteCharacterParty(party.id, currentCharacter))
         dispatch(addCharacterParty(party.id, selectCharacter))
         setEditCharacter(false)
@@ -110,7 +109,9 @@ const Profile = ({ parties, characters, elements }) => {
         setShowElementModal(true)
     }
 
-    console.log('THIS IS USERS PARTIES --->', usersParties)
+    useEffect(() => {
+        setCurrentCharacter('')
+    }, [selectParty])
 
     return (
         <>
@@ -177,7 +178,7 @@ const Profile = ({ parties, characters, elements }) => {
                                         Selected Character: {currentCharacterName}
                                     </div >
                                 }
-                                {/* {showElementModal && elementSetter === 'element-one' &&
+                                {showElementModal && elementSetter === 'element-one' &&
                                     <ElementSelectModal elementSetter={setElementOne} elements={elements} setShowModal={setShowElementModal} />
                                 }
                                 {showElementModal && elementSetter === 'element-two' &&
@@ -194,8 +195,8 @@ const Profile = ({ parties, characters, elements }) => {
                                 }
                                 {showElementModal && elementSetter === 'element-six' &&
                                     <ElementSelectModal elementSetter={setElementSix} elements={elements} setShowModal={setShowElementModal} />
-                                } */}
-                                {/* <div className='element-selector'>
+                                }
+                                <div className='element-selector'>
                                     <div onClick={handleSelectElement} className='element-one'>
                                         {elementOne &&
                                             <img src={elementOne}></img>
@@ -226,7 +227,7 @@ const Profile = ({ parties, characters, elements }) => {
                                             <img src={elementSix}></img>
                                         }
                                     </div>
-                                </div> */}
+                                </div>
                                 <div className='party-box'>
                                     <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[0]?.id)}>
                                         <CharacterCard character={party?.characters[0]} />

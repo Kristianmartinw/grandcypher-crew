@@ -39,7 +39,6 @@
     border-style: solid;
     background-color: rgba(255, 255, 240, .9);
     border-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png') 8% round;
-
 }
 
 .splashLinkDiv{
@@ -51,3 +50,5 @@
     text-align: center;
     justify-content: space-around;
 }
+
+
