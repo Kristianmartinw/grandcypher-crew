@@ -1,12 +1,16 @@
 .characters-page{
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y:scroll;
+    margin-left: 200%;
     width: 700px;
-    margin-left: 120px;
-    justify-content: space-around;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 25px;
     height: 79.8vh;
-    margin-top: 45px;
+    overflow-y: scroll;
+    justify-content: space-evenly;
 }
 
 .character-card{

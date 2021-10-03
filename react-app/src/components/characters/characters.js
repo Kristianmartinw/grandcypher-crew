@@ -7,11 +7,12 @@ const Characters = ({ characters }) => {
 
     return (
         <>
-            <img className='parties-background' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png'}></img>
-            <div className='characters-page'>
-                {characters.map(character =>
-                    <CharacterCard character={character} />
-                )}
+            <div className='party-scroll'>
+                <div className='characters-page'>
+                    {characters.map(character =>
+                        <CharacterCard character={character} />
+                    )}
+                </div>
             </div>
         </>
     )
