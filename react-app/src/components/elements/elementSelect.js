@@ -2,8 +2,6 @@ import React from 'react';
 
 const ElementSelect = ({ elementSetter, setShowModal, elements }) => {
 
-    console.log('HOW DID THAT HAPPEN?', elementSetter)
-
     const handleSelectElement = e => {
         elementSetter(e.target.id)
         setShowModal(false)

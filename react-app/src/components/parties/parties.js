@@ -37,16 +37,9 @@ const Parties = ({ parties }) => {
     })
 
     return (
-        parties.length === 0 ?
-            <>
-                <img className='parties-background' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png'}></img>
-                {/* <div className='empty-party-alert'>
-                    The skies are empty, how about signing up here and making the first party
-                </div> */}
-            </>
-            :
-            <>
-                <img className='parties-background' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png'}></img>
+        <>
+            <div className='party-scroll'>
+                {/* <img className='parties-background' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png'}></img> */}
                 <div className='parties-page'>
                     {parties.map(party =>
                         party?.characters.length === 3 &&
@@ -71,7 +64,8 @@ const Parties = ({ parties }) => {
                         </>
                     )}
                 </div>
-            </>
+            </div>
+        </>
     )
 }
 
