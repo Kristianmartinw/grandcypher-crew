@@ -47,21 +47,21 @@
     -webkit-text-fill-color: transparent;
 }
 
-/* .cloud-one{
+.cloud-one{
     position: absolute;
     left: 5;
-    top: 700px;
+    top: 70%;
     animation: moveFirst 270s linear infinite;
-    width: 400px;
+    width: 20%;
     z-index: -1;
 }
 
 .cloud-two {
     position: absolute;
     right: 5;
-    top: 50px;
+    top: 15%;
     animation: move 400s linear infinite;
-    width: 600px;
+    width: 40%;
     z-index: -1;
   }
 
@@ -69,27 +69,27 @@
     position: absolute;
     animation-name: ship;
     left: -200;
-    top: 50px;
+    top: 8%;
     animation: ship 180s linear infinite;
-    width: 800px;
+    width: 35%;
     z-index: -2;
   }
 
   .ship-two {
     position: absolute;
     right: 5;
-    top: 500px;
+    top: 55%;
     animation: ship-two 120s linear infinite;
-    width: 500px;
+    width: 25%;
     z-index: -3;
   }
 
   .ship-three {
     position: absolute;
     right: 5;
-    top: 300px;
+    top: 35%;
     animation: ship-three 250s linear infinite;
-    width: 800px;
+    width: 40%;
     z-index: -1;
 
   }
@@ -97,15 +97,15 @@
   .ship-four {
     position: absolute;
     right: 5;
-    top: 700px;
+    top: 90%;
     animation: ship-four 100s linear infinite;
-    width: 300px;
+    width: 10%;
     z-index: -2;
   }
 
   @keyframes moveFirst {
     from {
-      left: -450px;
+      left: -380px;
     }
     to {
       left: 100%;
@@ -114,7 +114,7 @@
 
 @keyframes move {
     from {
-      right: -1600px;
+      right: -1500px;
     }
     to {
       right: 100%;
@@ -123,7 +123,7 @@
 
   @keyframes ship {
     from {
-      left: -2000px;
+      left: -1000px;
     }
     to {
       left: 100%;
@@ -132,7 +132,7 @@
 
   @keyframes ship-two {
     from {
-      right: -4500px;
+      right: -4400px;
     }
     to {
       right: 100%;
@@ -141,7 +141,7 @@
 
   @keyframes ship-three {
     from {
-      right: -4500px;
+      right: -3500px;
     }
     to {
       right: 100%;
@@ -155,7 +155,7 @@
     to {
       left: 100%;
     }
-  } */
+  }
 
 .logo{
     position: absolute;

@@ -46,13 +46,14 @@ const LoginForm = () => {
             src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/error-papyrus.png'}></img>
         }
         <div>
-          <label htmlFor='email'>Email: </label>
+          <label htmlFor='email'>Username/email: </label>
           <input
             name='email'
             type='text'
-            placeholder='Email'
+            placeholder='username/email'
             value={email}
             onChange={updateEmail}
+            maxLength={20}
           />
         </div>
         <div>
@@ -63,6 +64,7 @@ const LoginForm = () => {
             placeholder='Password'
             value={password}
             onChange={updatePassword}
+            maxLength={15}
           />
         </div>
         <button type='submit'>Login</button>
