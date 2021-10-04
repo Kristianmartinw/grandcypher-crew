@@ -1,20 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import DemoButton from "../auth/DemoButton";
-import { useDispatch, useSelector } from 'react-redux'
-import LoginModal from "../auth/loginModal";
-import SignUpModal from "../auth/signUpModal"
-import * as sessionActions from '../../store/session';
+// import DemoButton from "../auth/DemoButton";
+// import { useDispatch, useSelector } from 'react-redux'
+// import LoginModal from "../auth/loginModal";
+// import SignUpModal from "../auth/signUpModal"
+// import * as sessionActions from '../../store/session';
 import "./splash.css"
 
 function Splash() {
 
-    const dispatch = useDispatch();
-    useSelector(state => state.session.user)
+    // const dispatch = useDispatch();
+    // useSelector(state => state.session.user)
 
-    let credential = 'gran@blue.io'
-    let password = 'password'
-    let demoLogin = () => { return dispatch(sessionActions.login(credential, password)) }
+    // let credential = 'gran@blue.io'
+    // let password = 'password'
+    // let demoLogin = () => { return dispatch(sessionActions.login(credential, password)) }
 
 
     return (

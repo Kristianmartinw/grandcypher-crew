@@ -14,8 +14,8 @@ export default function AboutMe() {
                             <div className='team-cards'>
                                 <div className='k-card'>
                                     <div>
-                                        <span><Link className='' to={{ pathname: 'https://github.com/Kristianmartinw' }} target='true'><img className='gitHubImage' alt="githubLogo" src='https://partylureawsbucket.s3.amazonaws.com/github.png'></img></Link></span>
-                                        <span><Link className='' to={{ pathname: 'https://www.linkedin.com/in/kristian-martinez-40137b21b/' }} target='true'><img className='gitHubImage' alt="githubLogo" src='https://partylureawsbucket.s3.amazonaws.com/linkedin.png'></img></Link></span>
+                                        <span><Link className='' to={{ pathname: 'https://github.com/Kristianmartinw' }} alt='' target='true'><img className='gitHubImage' alt="githubLogo" src='https://partylureawsbucket.s3.amazonaws.com/github.png'></img></Link></span>
+                                        <span><Link className='' alt='' to={{ pathname: 'https://www.linkedin.com/in/kristian-martinez-40137b21b/' }} target='true'><img className='gitHubImage' alt="githubLogo" src='https://partylureawsbucket.s3.amazonaws.com/linkedin.png'></img></Link></span>
                                     </div>
                                     Kristian Martinez
                                 </div>

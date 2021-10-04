@@ -43,25 +43,23 @@ const Parties = ({ parties }) => {
                 <div className='parties-page'>
                     {parties.map(party =>
                         party?.characters.length === 3 &&
-                        <>
-                            <div className='party'>
-                                <div className='party-name'>{party?.owner_name}{party?.name}</div>
-                                {sessionUser &&
-                                    <div className='rating-stars'>
-                                        <i id={`1-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 1 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                        <i id={`2-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 2 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                        <i id={`3-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 3 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                        <i id={`4-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 4 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                        <i id={`5-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 5 ? 'fas fa-star' : 'far fa-star'}`}></i>
-                                    </div>
-                                }
-                                <div className='party-box'>
-                                    {party.characters.map(character =>
-                                        <CharacterCard character={character} />
-                                    )}
+                        <div key={party.id} className='party'>
+                            <div className='party-name'>{party?.owner_name}{party?.name}</div>
+                            {sessionUser &&
+                                <div className='rating-stars'>
+                                    <i id={`1-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 1 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                    <i id={`2-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 2 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                    <i id={`3-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 3 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                    <i id={`4-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 4 ? 'fas fa-star' : 'far fa-star'}`}></i>
+                                    <i id={`5-${party.id}`} onClick={handlePartyRating} className={`${party?.ratings.find(rating => rating?.userId === sessionUser?.id)?.value >= 5 ? 'fas fa-star' : 'far fa-star'}`}></i>
                                 </div>
+                            }
+                            <div className='party-box'>
+                                {party.characters.map(character =>
+                                    <CharacterCard key={`${party.id}-${character.id}`} character={character} />
+                                )}
                             </div>
-                        </>
+                        </div>
                     )}
                 </div>
             </div>

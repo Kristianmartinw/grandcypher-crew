@@ -55,7 +55,7 @@ const SignUpForm = ({ setShowModal }) => {
           ))}
         </div>
         {errors.length > 0 &&
-          <img className='error-papyrus'
+          <img className='error-papyrus' alt=''
             src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/error-papyrus.png'}></img>
         }
         <div>

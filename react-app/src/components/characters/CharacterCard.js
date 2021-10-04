@@ -12,12 +12,12 @@ function CharacterCard({ character }) {
             </div>
             <div className='character-img-container'>
                 {character &&
-                    <img id={`character-${character?.id}`} className='character-img' src={character?.character_url}></img>
+                    <img id={`character-${character?.id}`} alt='' className='character-img' src={character?.character_url}></img>
                 }
             </div>
             <div className='character-element-container'>
                 {character &&
-                    <img className='character-element' src={elements[character?.element_id]?.element_url}></img>
+                    <img className='character-element' alt='' src={elements[character?.element_id]?.element_url}></img>
                 }
             </div>
         </div>

@@ -12,7 +12,7 @@ const ElementSelect = ({ elementSetter, setShowModal, elements }) => {
             {elements.map((element, i) =>
                 i < 6 &&
                 < div >
-                    <img onClick={handleSelectElement} id={element.element_url} src={element.element_url}></img>
+                    <img alt='' onClick={handleSelectElement} id={element.element_url} src={element.element_url}></img>
                 </div>
             )
             }

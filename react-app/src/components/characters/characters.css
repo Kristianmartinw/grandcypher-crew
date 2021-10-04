@@ -6,7 +6,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    cursor: pointer;
+    /* cursor: pointer; */
     margin-bottom: 25px;
     height: 79.8vh;
     overflow-y: scroll;
@@ -28,6 +28,10 @@
     background-size: 600px;
     margin-bottom: 15px;
     box-shadow: 0px 0px 5px 3px black ;
+}
+
+.character-card:hover {
+    cursor: pointer;
 }
 
 .character-name{
