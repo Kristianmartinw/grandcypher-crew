@@ -3,7 +3,7 @@ import './profile.css';
 import { useDispatch, useSelector } from "react-redux";
 import CharacterCard from '../characters/CharacterCard';
 import { createNewParty, editParty, deleteParty, addCharacterParty, deleteCharacterParty } from '../../store/party';
-import ElementSelectModal from '../elements/elementModal';
+// import ElementSelectModal from '../elements/elementModal';
 
 const Profile = ({ parties, characters, elements }) => {
     const dispatch = useDispatch()
@@ -18,14 +18,14 @@ const Profile = ({ parties, characters, elements }) => {
     const [currentCharacter, setCurrentCharacter] = useState('')
     const [addCharacter, setAddCharacter] = useState(false)
     const [editCharacter, setEditCharacter] = useState(false)
-    const [showElementModal, setShowElementModal] = useState(false)
-    const [elementSetter, setElementSetter] = useState(false)
-    const [elementOne, setElementOne] = useState(false)
-    const [elementTwo, setElementTwo] = useState(false)
-    const [elementThree, setElementThree] = useState(false)
-    const [elementFour, setElementFour] = useState(false)
-    const [elementFive, setElementFive] = useState(false)
-    const [elementSix, setElementSix] = useState(false)
+    // const [showElementModal, setShowElementModal] = useState(false)
+    // const [elementSetter, setElementSetter] = useState(false)
+    // const [elementOne, setElementOne] = useState(false)
+    // const [elementTwo, setElementTwo] = useState(false)
+    // const [elementThree, setElementThree] = useState(false)
+    // const [elementFour, setElementFour] = useState(false)
+    // const [elementFive, setElementFive] = useState(false)
+    // const [elementSix, setElementSix] = useState(false)
 
     const party = usersParties?.find(party => party.id === +selectParty)
     const partyCharacterIds = party?.characters.map(character => character.id)
@@ -104,10 +104,10 @@ const Profile = ({ parties, characters, elements }) => {
         setCurrentCharacter('')
     }
 
-    const handleSelectElement = e => {
-        setElementSetter(e.currentTarget.className)
-        setShowElementModal(true)
-    }
+    // const handleSelectElement = e => {
+    //     setElementSetter(e.currentTarget.className)
+    //     setShowElementModal(true)
+    // }
 
     useEffect(() => {
         setCurrentCharacter('')
@@ -118,7 +118,7 @@ const Profile = ({ parties, characters, elements }) => {
             <div className='party-scroll'>
                 <div className='profile-page'>
                     <div className='profile-session'>
-                        <img className='profile-img' src={sessionUser?.profile_url} />
+                        <img alt='' className='profile-img' src={sessionUser?.profile_url} />
                         <span className='session-name'>
                             {sessionUser?.username}
                         </span>
@@ -127,7 +127,7 @@ const Profile = ({ parties, characters, elements }) => {
                         <div className='select-party-text'> Select a party:</div>
                         <div className='profile-party-names'>
                             {usersParties.map(party =>
-                                <div id={party.id} className='profile-party-name' onClick={e => setSelectParty(e.target.id)}>
+                                <div id={party.id} key={party.id} className='profile-party-name' onClick={e => setSelectParty(e.target.id)}>
                                     {party.name}
                                 </div>
                             )}
@@ -230,13 +230,13 @@ const Profile = ({ parties, characters, elements }) => {
                                     </div> */}
                                     <div className='party-box'>
                                         <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[0]?.id)}>
-                                            <CharacterCard character={party?.characters[0]} />
+                                            <CharacterCard key={`${party.id}-character`} character={party?.characters[0]} />
                                         </div>
                                         <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[1]?.id)}>
-                                            <CharacterCard character={party?.characters[1]} />
+                                            <CharacterCard key={`${party.id}-character`} character={party?.characters[1]} />
                                         </div>
                                         <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[2]?.id)}>
-                                            <CharacterCard character={party?.characters[2]} />
+                                            <CharacterCard key={`${party.id}-character`} character={party?.characters[2]} />
                                         </div>
                                     </div>
                                 </div>
@@ -252,7 +252,7 @@ const Profile = ({ parties, characters, elements }) => {
                                 <form onSubmit={handleAddCharacter}>
                                     <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
                                         {validCharacters.map(character =>
-                                            <option value={character.id}>
+                                            <option key={character.id} value={character.id}>
                                                 {character.name}
                                             </option>
                                         )}
@@ -270,7 +270,7 @@ const Profile = ({ parties, characters, elements }) => {
                                 <form onSubmit={handleEditCharacter}>
                                     <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
                                         {validCharacters.map(character =>
-                                            <option value={character.id}>
+                                            <option key={character.id} value={character.id}>
                                                 {character.name}
                                             </option>
                                         )}

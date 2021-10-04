@@ -29,7 +29,7 @@ export function Modal({ onClose, children, className = '' }) {
         <div className='modal'>
             <div className='modal-background' onClick={onClose} />
             <div id='modal-body' onClick={e => e.stopPropagation()} className={className}>
-                <img className='modal-papyrus' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/auth-papyrus.png'}>
+                <img alt='' className='modal-papyrus' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/auth-papyrus.png'}>
                 </img>
                 {children}
             </div>

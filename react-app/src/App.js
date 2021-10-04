@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
 import Navbar from './components/navbar/navbar';
-import Home from './components/home/home';
 import Splash from './components/splash/splash'
 import PageNotFound from './components/404/404'
 import Aboutme from './components/Aboutme/aboutMe'
@@ -52,27 +49,15 @@ function App() {
   }, [dispatch]);
 
   const archetypeValuesSlice = useSelector(state => state.archetypeValues)
-  const archetypesSlice = useSelector(state => state.archetypes)
   const charactersSlice = useSelector(state => state.characters)
-  const chargeAttacksSlice = useSelector(state => state.chargeAttacks)
   const elementsSlice = useSelector(state => state.elements)
   const partiesSlice = useSelector(state => state.parties)
-  const racesSlice = useSelector(state => state.races)
-  const skillsSlice = useSelector(state => state.skills)
-  const specialtiesSlice = useSelector(state => state.specialties)
-  const supportSkillsSlice = useSelector(state => state.supportSkills)
-
 
   const archetypeValues = Object.values(archetypeValuesSlice)
-  const archetypes = Object.values(archetypesSlice)
   const characters = Object.values(charactersSlice)
-  const chargeAttacks = Object.values(chargeAttacksSlice)
   const elements = Object.values(elementsSlice)
   const parties = Object.values(partiesSlice)
-  const races = Object.values(racesSlice)
-  const skills = Object.values(skillsSlice)
-  const specialties = Object.values(specialtiesSlice)
-  const supportSkills = Object.values(supportSkillsSlice)
+
 
   if (!loaded) {
     return null;
