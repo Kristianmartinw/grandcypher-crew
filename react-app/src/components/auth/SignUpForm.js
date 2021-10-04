@@ -59,12 +59,13 @@ const SignUpForm = ({ setShowModal }) => {
             src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/error-papyrus.png'}></img>
         }
         <div>
-          <label>User Name: </label>
+          <label>Username: </label>
           <input
             type='text'
             name='username'
             onChange={updateUsername}
             value={username}
+            maxLength={15}
           ></input>
         </div>
         <div>
@@ -74,6 +75,7 @@ const SignUpForm = ({ setShowModal }) => {
             name='email'
             onChange={updateEmail}
             value={email}
+            maxLength={20}
           ></input>
         </div>
         <div>
@@ -83,6 +85,7 @@ const SignUpForm = ({ setShowModal }) => {
             name='password'
             onChange={updatePassword}
             value={password}
+            maxLength={15}
           ></input>
         </div>
         <div>
@@ -93,6 +96,7 @@ const SignUpForm = ({ setShowModal }) => {
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
+            maxLength={15}
           ></input>
         </div>
         <button type='submit'>Sign Up</button>

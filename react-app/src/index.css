@@ -41,6 +41,24 @@
   .not-found-page{
     height: 65vh;
   }
+  .ship{
+    display: none;
+  }
+  .ship-two{
+    display: none;
+  }
+  .ship-three{
+    display: none;
+  }
+  .ship-four{
+    display: none;
+  }
+  .cloud-two{
+    display: none;
+  }
+  .cloud-one{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1000px) {
