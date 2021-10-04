@@ -93,7 +93,11 @@
 .profile-party-name:hover{
 cursor: pointer;
 color: rgb(80, 139, 177);
-  text-shadow: 0px 0px .5px black;
+text-shadow: 0px 0px .5px black;
+}
+
+.character-select:hover{
+    cursor: pointer;
 }
 
 .element-selector {

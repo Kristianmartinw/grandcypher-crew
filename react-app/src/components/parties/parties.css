@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
     margin-bottom: 25px;
     height: 81vh;
     overflow-y: scroll;
@@ -57,6 +56,9 @@
 .rating-stars{
     margin-top: 8px;
     margin-bottom: 15px;
+}
+.rating-stars:hover{
+    cursor:pointer
 }
 
 .party{
