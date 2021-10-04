@@ -9,7 +9,7 @@
 }
 
 .splashTitle{
-    font-size: 5rem;
+    font-size: 4vw;
     text-align: center;
     text-shadow: 1px 1px 1px black;
     background: -webkit-linear-gradient(goldenrod, black);
@@ -50,5 +50,3 @@
     text-align: center;
     justify-content: space-around;
 }
-
-

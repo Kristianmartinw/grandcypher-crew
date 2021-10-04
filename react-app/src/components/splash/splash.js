@@ -22,11 +22,11 @@ function Splash() {
             <h1 className="splashTitle">Grandcypher Crew Builder</h1>
             <h2 className="splashSub">Party building made easier so you can focus on soaring the limitless blue</h2>
             <div className="splashLinkDiv">
-                <SignUpModal />
+                {/* <SignUpModal />
                 <LoginModal />
                 <Link to="/parties" className="splashLinks">View Parties</Link>
                 <Link to="/characters" className="splashLinks">View Characters</Link>
-                <DemoButton />
+                <DemoButton /> */}
             </div>
         </div>
     )

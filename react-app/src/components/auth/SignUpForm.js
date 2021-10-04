@@ -54,6 +54,10 @@ const SignUpForm = ({ setShowModal }) => {
             <div key={ind}>{error}</div>
           ))}
         </div>
+        {errors.length > 0 &&
+          <img className='error-papyrus'
+            src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/error-papyrus.png'}></img>
+        }
         <div>
           <label>User Name: </label>
           <input

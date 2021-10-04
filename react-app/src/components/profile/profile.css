@@ -1,9 +1,18 @@
 .profile-page{
-    margin-top: 22px;
+    /* margin-top: 22px;
     height: 75vh;
     width: 800px;
     margin-left: 120px;
-    margin-top: 55px;
+    margin-top: 55px; */
+    width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 25px;
+    height: 81vh;
+    overflow-y: scroll;
 }
 
 .profile-session{
