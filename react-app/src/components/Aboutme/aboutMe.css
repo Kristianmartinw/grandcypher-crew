@@ -1,10 +1,7 @@
 .about-us-page {
   position: relative;
-  max-width: 60%;
-  height: 80vh;
+  max-width: 30%;
   margin: auto;
-  padding: 30px;
-  top: 60px;
   height: 75vh;
   background-color: rgba(255, 255, 240, .8);
   border-width: 5px;
@@ -13,8 +10,9 @@
 }
 
 .about-me-title{
-  font-size: 25px;
+  font-size: 1.3em;
   text-align: center;
+  margin-top: 8%;
 }
 
 .body-text {
@@ -35,7 +33,7 @@
   align-content: center;
   border: 3px solid goldenrod;
   border-radius: 5%;
-  padding: 10px;
+  padding: 1%;
 }
 
 
@@ -43,20 +41,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding-top: 30px;
-}
-
-.team-name {
-  display: flex;
-  font-size: 30px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.body-text {
-  display: flex;
-  flex: 0 100px;
-  justify-self: center;
+  padding-top: 7%;
 }
 
 .team-body {
@@ -75,7 +60,7 @@
 }
 
 .gitHubImage {
-  padding: 5px;
+  padding: 5%;
 }
 
 .footer {
@@ -95,6 +80,6 @@
   border-style: solid;
   border-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/user/frame.png') 5% stretch;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 80%;
   text-shadow: 0px 0px 1px black;
 }

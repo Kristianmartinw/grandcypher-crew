@@ -1,4 +1,4 @@
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1280px) and (min-width:901px) {
   .party-scroll {
     background-size: 100% 100%;
   }
@@ -23,15 +23,79 @@
     width: 30%;
     left: -5%;
   }
+  .about-us-page {
+    max-width: 60%;
+  }
+  .team-cards{
+    padding-top: 3%;
+  }
+  .footer {
+    padding-top: 8%;
+  }
+  .about-me-title{
+    margin-top: 2%;
+  }
+  .pnf-container{
+    top: -24%;
+  }
+  .not-found-page{
+    height: 65vh;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .splashContainer {
+    margin-top: 85%;
+  }
+  .about-us{
+    text-align: center;
+  }
+  .about-us-page{
+    max-height: 50%;
+  }
+  .about-me-title{
+    margin-top: 12%;
+  }
+  .pnf-container{
+    top: -10%;
+  }
+  .not-found-page{
+    height: 45vh;
+  }
+}
+
+.errors{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-left: -10%;
+  margin-top: -60%;
+  font-size: 18px;
+  z-index: 1;
+  backdrop-filter: blur(6px);
+}
+
+.error-papyrus{
+  position: absolute;
+  margin-top: -75%;
+  margin-left: -40%;
+  width: 160%;
+  height: 140%;
+}
+
+html {
+  height: 100%;
+  background: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/background.jpg') no-repeat;
+  background-size: 105vw 105vh;
 }
 
 body {
+  /* min-height: 100vh; */
   font-size: 20px;
-  background-color: blanchedalmond;
-  margin-left: 25em;
-  margin-right: 25em;
+  margin-left: 20%;
+  margin-right: 20%;
   overflow: hidden;
-  background-image: url('https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/background.jpg');
+  z-index: -5;
 
 }
 

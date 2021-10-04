@@ -115,174 +115,175 @@ const Profile = ({ parties, characters, elements }) => {
 
     return (
         <>
-            <img className='parties-background' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/papyrus.png'}></img>
-            <div className='profile-page'>
-                <div className='profile-session'>
-                    <img className='profile-img' src={sessionUser?.profile_url} />
-                    <span className='session-name'>
-                        {sessionUser?.username}
-                    </span>
-                </div>
-                <div className='parties-info'>
-                    <div className='select-party-text'> Select a party:</div>
-                    <div className='profile-party-names'>
-                        {usersParties.map(party =>
-                            <div id={party.id} className='profile-party-name' onClick={e => setSelectParty(e.target.id)}>
-                                {party.name}
-                            </div>
-                        )}
+            <div className='party-scroll'>
+                <div className='profile-page'>
+                    <div className='profile-session'>
+                        <img className='profile-img' src={sessionUser?.profile_url} />
+                        <span className='session-name'>
+                            {sessionUser?.username}
+                        </span>
                     </div>
-                    <div className='party-buttons'>
-                        {usersParties.length < 6 &&
-                            < button onClick={handleShowCreateParty}>Create Party</button>
+                    <div className='parties-info'>
+                        <div className='select-party-text'> Select a party:</div>
+                        <div className='profile-party-names'>
+                            {usersParties.map(party =>
+                                <div id={party.id} className='profile-party-name' onClick={e => setSelectParty(e.target.id)}>
+                                    {party.name}
+                                </div>
+                            )}
+                        </div>
+                        <div className='party-buttons'>
+                            {usersParties.length < 6 &&
+                                < button onClick={handleShowCreateParty}>Create Party</button>
+                            }
+                            {createParty &&
+                                <div>
+                                    <form onSubmit={handlePartySubmit}>
+                                        <input maxLength={10} value={partyName} onChange={e => setPartyName(e.target.value)} placeholder='Enter party name' required></input>
+                                        <button>Submit</button>
+                                    </form>
+                                    <button onClick={e => setCreateParty(false)}>Cancel</button>
+                                </div>
+                            }
+                            {usersParties.length > 0 && selectParty &&
+                                <button onClick={handleShowEditParty}>Edit Party</button>
+                            }
+                            {changeParty && selectParty &&
+                                <div>
+                                    <form onSubmit={handleEditParty}>
+                                        <input maxLength={10} onChange={e => setPartyName(e.target.value)} placeholder={partyName} required></input>
+                                        <button>Submit</button>
+                                    </form>
+                                    <button onClick={e => setChangeParty(false)}>Cancel</button>
+                                </div>
+                            }
+                            {usersParties.length > 0 && selectParty &&
+                                <button onClick={e => setRemoveParty(true)}>Delete Party</button>
+                            }
+                            {removeParty && selectParty &&
+                                < div >
+                                    <form onSubmit={handlePartyRemove}>
+                                        <button>Delete</button>
+                                    </form>
+                                    <button onClick={e => setRemoveParty(false)}>Cancel</button>
+                                </div>
+                            }
+                        </div>
+                        {selectParty &&
+                            <>
+                                <div className='profile-party'>
+                                    <div className='party-name'>{party?.name}</div>
+                                    {currentCharacterName &&
+                                        <div className='selected-character-name'>
+                                            Selected Character: {currentCharacterName}
+                                        </div >
+                                    }
+                                    {/* {showElementModal && elementSetter === 'element-one' &&
+                                        <ElementSelectModal elementSetter={setElementOne} elements={elements} setShowModal={setShowElementModal} />
+                                    }
+                                    {showElementModal && elementSetter === 'element-two' &&
+                                        <ElementSelectModal elementSetter={setElementTwo} elements={elements} setShowModal={setShowElementModal} />
+                                    }
+                                    {showElementModal && elementSetter === 'element-three' &&
+                                        <ElementSelectModal elementSetter={setElementThree} elements={elements} setShowModal={setShowElementModal} />
+                                    }
+                                    {showElementModal && elementSetter === 'element-four' &&
+                                        <ElementSelectModal elementSetter={setElementFour} elements={elements} setShowModal={setShowElementModal} />
+                                    }
+                                    {showElementModal && elementSetter === 'element-five' &&
+                                        <ElementSelectModal elementSetter={setElementFive} elements={elements} setShowModal={setShowElementModal} />
+                                    }
+                                    {showElementModal && elementSetter === 'element-six' &&
+                                        <ElementSelectModal elementSetter={setElementSix} elements={elements} setShowModal={setShowElementModal} />
+                                    }
+                                    <div className='element-selector'>
+                                        <div onClick={handleSelectElement} className='element-one'>
+                                            {elementOne &&
+                                                <img src={elementOne}></img>
+                                            }
+                                        </div>
+                                        <div onClick={handleSelectElement} className='element-two'>
+                                            {elementTwo &&
+                                                <img src={elementTwo}></img>
+                                            }
+                                        </div>
+                                        <div onClick={handleSelectElement} className='element-three'>
+                                            {elementThree &&
+                                                <img src={elementThree}></img>
+                                            }
+                                        </div>
+                                        <div onClick={handleSelectElement} className='element-four'>
+                                            {elementFour &&
+                                                <img src={elementFour}></img>
+                                            }
+                                        </div>
+                                        <div onClick={handleSelectElement} className='element-five'>
+                                            {elementFive &&
+                                                < img src={elementFive}></img>
+                                            }
+                                        </div>
+                                        <div onClick={handleSelectElement} className='element-six'>
+                                            {elementSix &&
+                                                <img src={elementSix}></img>
+                                            }
+                                        </div>
+                                    </div> */}
+                                    <div className='party-box'>
+                                        <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[0]?.id)}>
+                                            <CharacterCard character={party?.characters[0]} />
+                                        </div>
+                                        <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[1]?.id)}>
+                                            <CharacterCard character={party?.characters[1]} />
+                                        </div>
+                                        <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[2]?.id)}>
+                                            <CharacterCard character={party?.characters[2]} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
                         }
-                        {createParty &&
-                            <div>
-                                <form onSubmit={handlePartySubmit}>
-                                    <input maxLength={10} value={partyName} onChange={e => setPartyName(e.target.value)} placeholder='Enter party name' required></input>
-                                    <button>Submit</button>
-                                </form>
-                                <button onClick={e => setCreateParty(false)}>Cancel</button>
-                            </div>
+                    </div>
+                    <div className='character-buttons'>
+                        {selectParty && party?.characters.length < 3 &&
+                            <button className='character-button' onClick={handleDefaultAddCharacter} >Add character</button>
                         }
-                        {usersParties.length > 0 && selectParty &&
-                            <button onClick={handleShowEditParty}>Edit Party</button>
-                        }
-                        {changeParty && selectParty &&
-                            <div>
-                                <form onSubmit={handleEditParty}>
-                                    <input maxLength={10} onChange={e => setPartyName(e.target.value)} placeholder={partyName} required></input>
-                                    <button>Submit</button>
-                                </form>
-                                <button onClick={e => setChangeParty(false)}>Cancel</button>
-                            </div>
-                        }
-                        {usersParties.length > 0 && selectParty &&
-                            <button onClick={e => setRemoveParty(true)}>Delete Party</button>
-                        }
-                        {removeParty && selectParty &&
+                        {addCharacter && selectParty &&
                             < div >
-                                <form onSubmit={handlePartyRemove}>
-                                    <button>Delete</button>
+                                <form onSubmit={handleAddCharacter}>
+                                    <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
+                                        {validCharacters.map(character =>
+                                            <option value={character.id}>
+                                                {character.name}
+                                            </option>
+                                        )}
+                                    </select>
+                                    <button>Submit</button>
                                 </form>
-                                <button onClick={e => setRemoveParty(false)}>Cancel</button>
+                                <button onClick={e => setAddCharacter(false)}>Cancel</button>
                             </div>
                         }
-                    </div>
-                    {selectParty &&
-                        <>
-                            <div className='profile-party'>
-                                <div className='party-name'>{party?.name}</div>
-                                {currentCharacterName &&
-                                    <div className='selected-character-name'>
-                                        Selected Character: {currentCharacterName}
-                                    </div >
-                                }
-                                {showElementModal && elementSetter === 'element-one' &&
-                                    <ElementSelectModal elementSetter={setElementOne} elements={elements} setShowModal={setShowElementModal} />
-                                }
-                                {showElementModal && elementSetter === 'element-two' &&
-                                    <ElementSelectModal elementSetter={setElementTwo} elements={elements} setShowModal={setShowElementModal} />
-                                }
-                                {showElementModal && elementSetter === 'element-three' &&
-                                    <ElementSelectModal elementSetter={setElementThree} elements={elements} setShowModal={setShowElementModal} />
-                                }
-                                {showElementModal && elementSetter === 'element-four' &&
-                                    <ElementSelectModal elementSetter={setElementFour} elements={elements} setShowModal={setShowElementModal} />
-                                }
-                                {showElementModal && elementSetter === 'element-five' &&
-                                    <ElementSelectModal elementSetter={setElementFive} elements={elements} setShowModal={setShowElementModal} />
-                                }
-                                {showElementModal && elementSetter === 'element-six' &&
-                                    <ElementSelectModal elementSetter={setElementSix} elements={elements} setShowModal={setShowElementModal} />
-                                }
-                                <div className='element-selector'>
-                                    <div onClick={handleSelectElement} className='element-one'>
-                                        {elementOne &&
-                                            <img src={elementOne}></img>
-                                        }
-                                    </div>
-                                    <div onClick={handleSelectElement} className='element-two'>
-                                        {elementTwo &&
-                                            <img src={elementTwo}></img>
-                                        }
-                                    </div>
-                                    <div onClick={handleSelectElement} className='element-three'>
-                                        {elementThree &&
-                                            <img src={elementThree}></img>
-                                        }
-                                    </div>
-                                    <div onClick={handleSelectElement} className='element-four'>
-                                        {elementFour &&
-                                            <img src={elementFour}></img>
-                                        }
-                                    </div>
-                                    <div onClick={handleSelectElement} className='element-five'>
-                                        {elementFive &&
-                                            < img src={elementFive}></img>
-                                        }
-                                    </div>
-                                    <div onClick={handleSelectElement} className='element-six'>
-                                        {elementSix &&
-                                            <img src={elementSix}></img>
-                                        }
-                                    </div>
-                                </div>
-                                <div className='party-box'>
-                                    <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[0]?.id)}>
-                                        <CharacterCard character={party?.characters[0]} />
-                                    </div>
-                                    <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[1]?.id)}>
-                                        <CharacterCard character={party?.characters[1]} />
-                                    </div>
-                                    <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[2]?.id)}>
-                                        <CharacterCard character={party?.characters[2]} />
-                                    </div>
-                                </div>
+                        {currentCharacter && selectParty &&
+                            <button className='character-button' onClick={handleDefaultEditCharacter} disabled={!currentCharacter}>Change Character</button>
+                        }
+                        {editCharacter &&
+                            <div>
+                                <form onSubmit={handleEditCharacter}>
+                                    <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
+                                        {validCharacters.map(character =>
+                                            <option value={character.id}>
+                                                {character.name}
+                                            </option>
+                                        )}
+                                    </select>
+                                    <button>Submit</button>
+                                </form>
+                                <button onClick={e => setEditCharacter(false)}>Cancel</button>
                             </div>
-                        </>
-                    }
-                </div>
-                <div className='character-buttons'>
-                    {selectParty && party?.characters.length < 3 &&
-                        <button className='character-button' onClick={handleDefaultAddCharacter} >Add character</button>
-                    }
-                    {addCharacter && selectParty &&
-                        < div >
-                            <form onSubmit={handleAddCharacter}>
-                                <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
-                                    {validCharacters.map(character =>
-                                        <option value={character.id}>
-                                            {character.name}
-                                        </option>
-                                    )}
-                                </select>
-                                <button>Submit</button>
-                            </form>
-                            <button onClick={e => setAddCharacter(false)}>Cancel</button>
-                        </div>
-                    }
-                    {currentCharacter && selectParty &&
-                        <button className='character-button' onClick={handleDefaultEditCharacter} disabled={!currentCharacter}>Change Character</button>
-                    }
-                    {editCharacter &&
-                        <div>
-                            <form onSubmit={handleEditCharacter}>
-                                <select value={selectCharacter} onChange={e => setSelectCharacter(e.target.value)}>
-                                    {validCharacters.map(character =>
-                                        <option value={character.id}>
-                                            {character.name}
-                                        </option>
-                                    )}
-                                </select>
-                                <button>Submit</button>
-                            </form>
-                            <button onClick={e => setEditCharacter(false)}>Cancel</button>
-                        </div>
-                    }
-                    {currentCharacter && selectParty &&
-                        <button className='character-button' onClick={e => handleRemoveCharacter()} disabled={!currentCharacter}>Remove Character</button>
-                    }
+                        }
+                        {currentCharacter && selectParty &&
+                            <button className='character-button' onClick={e => handleRemoveCharacter()} disabled={!currentCharacter}>Remove Character</button>
+                        }
+                    </div>
                 </div>
             </div>
         </>
