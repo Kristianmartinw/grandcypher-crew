@@ -10,7 +10,9 @@ const Characters = ({ characters }) => {
             <div className='party-scroll'>
                 <div className='characters-page'>
                     {characters.map(character =>
-                        <CharacterCard key={character.id} character={character} />
+                     
+                            < CharacterCard key={character.id} character={character} />
+
                     )}
                 </div>
             </div>
