@@ -3,6 +3,7 @@
     width: 700px;
     margin: 0 auto;
     display: flex;
+    gap: 3px;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
@@ -15,7 +16,7 @@
 
 .character-card{
     height: 400px;
-    min-width: 200px;
+    width: 208px;
     z-index: 1;
     position: relative;
     border-width: 19px;
@@ -31,8 +32,10 @@
 }
 
 .character-name{
+    position: relative;
+    z-index: 2;
     text-align: center;
-    width: 100%;
+    width: 105%;
     margin-left: 3px;
     color:goldenrod;
     font-size: 20px;

@@ -19,13 +19,13 @@ const Profile = ({ parties, characters, elements }) => {
     const [addCharacter, setAddCharacter] = useState(false)
     const [editCharacter, setEditCharacter] = useState(false)
     const [showElementModal, setShowElementModal] = useState(false)
-    const [elementSetter, setElementSetter] = useState(false)
-    const [elementOne, setElementOne] = useState(false)
-    const [elementTwo, setElementTwo] = useState(false)
-    const [elementThree, setElementThree] = useState(false)
-    const [elementFour, setElementFour] = useState(false)
-    const [elementFive, setElementFive] = useState(false)
-    const [elementSix, setElementSix] = useState(false)
+    // const [elementSetter, setElementSetter] = useState(false)
+    // const [elementOne, setElementOne] = useState(false)
+    // const [elementTwo, setElementTwo] = useState(false)
+    // const [elementThree, setElementThree] = useState(false)
+    // const [elementFour, setElementFour] = useState(false)
+    // const [elementFive, setElementFive] = useState(false)
+    // const [elementSix, setElementSix] = useState(false)
 
     const party = usersParties?.find(party => party.id === +selectParty)
     const partyCharacterIds = party?.characters.map(character => character.id)
@@ -104,10 +104,10 @@ const Profile = ({ parties, characters, elements }) => {
         setCurrentCharacter('')
     }
 
-    const handleSelectElement = e => {
-        setElementSetter(e.currentTarget.className)
-        setShowElementModal(true)
-    }
+    // const handleSelectElement = e => {
+    //     setElementSetter(e.currentTarget.className)
+    //     setShowElementModal(true)
+    // }
 
     useEffect(() => {
         setCurrentCharacter('')
@@ -178,7 +178,7 @@ const Profile = ({ parties, characters, elements }) => {
                                             Selected Character: {currentCharacterName}
                                         </div >
                                     }
-                                    {showElementModal && elementSetter === 'element-one' &&
+                                    {/* {showElementModal && elementSetter === 'element-one' &&
                                         <ElementSelectModal elementSetter={setElementOne} elements={elements} setShowModal={setShowElementModal} />
                                     }
                                     {showElementModal && elementSetter === 'element-two' &&
@@ -195,8 +195,8 @@ const Profile = ({ parties, characters, elements }) => {
                                     }
                                     {showElementModal && elementSetter === 'element-six' &&
                                         <ElementSelectModal elementSetter={setElementSix} elements={elements} setShowModal={setShowElementModal} />
-                                    }
-                                    <div className='element-selector'>
+                                    } */}
+                                    {/* <div className='element-selector'>
                                         <div onClick={handleSelectElement} className='element-one'>
                                             {elementOne &&
                                                 <img src={elementOne}></img>
@@ -227,7 +227,7 @@ const Profile = ({ parties, characters, elements }) => {
                                                 <img src={elementSix}></img>
                                             }
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className='party-box'>
                                         <div className='character-select' onClick={e => setCurrentCharacter(party?.characters[0]?.id)}>
                                             <CharacterCard key={`${party.id}-character`} character={party?.characters[0]} />
