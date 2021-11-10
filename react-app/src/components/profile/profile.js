@@ -3,7 +3,7 @@ import './profile.css';
 import { useDispatch, useSelector } from "react-redux";
 import CharacterCard from '../characters/CharacterCard';
 import { createNewParty, editParty, deleteParty, addCharacterParty, deleteCharacterParty } from '../../store/party';
-import ElementSelectModal from '../elements/elementModal';
+// import ElementSelectModal from '../elements/elementModal';
 
 const Profile = ({ parties, characters, elements }) => {
     const dispatch = useDispatch()
@@ -18,7 +18,7 @@ const Profile = ({ parties, characters, elements }) => {
     const [currentCharacter, setCurrentCharacter] = useState('')
     const [addCharacter, setAddCharacter] = useState(false)
     const [editCharacter, setEditCharacter] = useState(false)
-    const [showElementModal, setShowElementModal] = useState(false)
+    // const [showElementModal, setShowElementModal] = useState(false)
     // const [elementSetter, setElementSetter] = useState(false)
     // const [elementOne, setElementOne] = useState(false)
     // const [elementTwo, setElementTwo] = useState(false)
