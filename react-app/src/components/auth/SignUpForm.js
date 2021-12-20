@@ -65,7 +65,7 @@ const SignUpForm = ({ setShowModal }) => {
             name='username'
             onChange={updateUsername}
             value={username}
-            maxLength={15}
+            maxLength={20}
           ></input>
         </div>
         <div>
@@ -75,7 +75,7 @@ const SignUpForm = ({ setShowModal }) => {
             name='email'
             onChange={updateEmail}
             value={email}
-            maxLength={20}
+            maxLength={50}
           ></input>
         </div>
         <div>
@@ -85,7 +85,8 @@ const SignUpForm = ({ setShowModal }) => {
             name='password'
             onChange={updatePassword}
             value={password}
-            maxLength={15}
+            required={true}
+            maxLength={20}
           ></input>
         </div>
         <div>
@@ -96,7 +97,7 @@ const SignUpForm = ({ setShowModal }) => {
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
-            maxLength={15}
+            maxLength={20}
           ></input>
         </div>
         <button type='submit'>Sign Up</button>
