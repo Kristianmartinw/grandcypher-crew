@@ -1,0 +1,21 @@
+.filter-box {
+    position: absolute;
+    top: 11%;
+    left: 44.3%;
+    z-index: 2;
+}
+
+.elements-div {
+    display: flex;
+}
+
+.selected img {
+    border: 2.5px solid lightyellow;
+    border-radius: 50%;
+}
+
+.elements{
+    border: 1px solid black;
+    width: fit-content;
+    margin: 0 .5em;
+}

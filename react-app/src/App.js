@@ -8,6 +8,7 @@ import Aboutme from './components/Aboutme/aboutMe'
 import Characters from './components/characters/characters';
 import Parties from './components/parties/parties';
 import Profile from './components/profile/profile';
+import Filter from './components/filter/filter';
 import ProtectedRoute from './components/auth/ProtectedRoute'
 import { authenticate } from './store/session';
 import { getArchetypeValues } from './store/archetype_value'
@@ -32,20 +33,19 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+      await dispatch(getArchetypeValues())
+      await dispatch(getArchetypes())
+      await dispatch(getCharacters())
+      await dispatch(getChargeAttacks())
+      await dispatch(getElements())
+      await dispatch(getParties())
+      await dispatch(getRaces())
+      await dispatch(getSkills())
+      await dispatch(getSpecialties())
+      await dispatch(getSupportSkills())
       setLoaded(true);
     })();
 
-
-    dispatch(getArchetypeValues())
-    dispatch(getArchetypes())
-    dispatch(getCharacters())
-    dispatch(getChargeAttacks())
-    dispatch(getElements())
-    dispatch(getParties())
-    dispatch(getRaces())
-    dispatch(getSkills())
-    dispatch(getSpecialties())
-    dispatch(getSupportSkills())
   }, [dispatch]);
 
   const archetypeValuesSlice = useSelector(state => state.archetypeValues)
@@ -58,12 +58,11 @@ function App() {
   const elements = Object.values(elementsSlice)
   const parties = Object.values(partiesSlice)
 
+  const [filteredCharacters, setFilteredCharacters] = useState([])
 
   if (!loaded) {
     return null;
   }
-
-
 
   return (
     <BrowserRouter>
@@ -76,7 +75,8 @@ function App() {
           <Profile archetypeValues={archetypeValues} parties={parties} elements={elements} characters={characters} sessionUser={sessionUser} authenticated={authenticated} />
         </ProtectedRoute>
         <Route path='/characters' exact={true} >
-          <Characters characters={characters} />
+          <Filter elements={elements} characters={characters} setFilteredCharacters={setFilteredCharacters} />
+          <Characters characters={filteredCharacters} />
         </Route>
         <Route path='/parties' exact={true} >
           <Parties parties={parties} />
