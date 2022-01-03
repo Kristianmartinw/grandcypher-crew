@@ -33,6 +33,9 @@ Grandcypher-crew is an app that allows users to create a party of characters fro
     * On the parties page, a user can view all full parties that every user has created and rate the ones they found the most useful.
 * Characters
     * On the characters page, a user can view all the characters currently supported by the app.
+    * User can now search for a specific character by typing in their name in the search box.
+    * User can now filter between characters by element.
+    * Clicking on a character now pops open a full image of the character.
 * Profile
     * A user can create a party, change its name, as well as delete one.
     * A user can add a character to a party, change the character, or remove it.
@@ -46,8 +49,6 @@ Grandcypher-crew is an app that allows users to create a party of characters fro
 ## Features to be implemented later: 
   * Elements
   - Parties will have elements assigned to them as in the game.
-  * Search
-  - User will be able to search character names which will be necessary going forward as scrolling through 800+ characters would be a bad user experience.
   * Autobuild
   - For user's that aren't too knowledgable abotu the game, I'd like to add an algorithm that calculates the best formation based on the criterias a user sets.
   * Character Info
