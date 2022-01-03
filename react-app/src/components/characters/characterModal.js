@@ -12,7 +12,7 @@ function CharacterInfoModal({ character }) {
                 <CharacterCard character={character} />
             </div>
             {showModal && (
-                <Modal onClose={() => setShowModal(false)} >
+                <Modal background={false} onClose={() => setShowModal(false)} >
                     <CharacterInfo character={character} setShowModal={setShowModal} />
                 </Modal>
             )}

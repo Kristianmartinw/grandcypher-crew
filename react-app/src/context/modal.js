@@ -21,7 +21,7 @@ export function ModalProvider({ children }) {
     )
 }
 
-export function Modal({ onClose, children, className = '' }) {
+export function Modal({ onClose, children, className = '', background = true }) {
     const modalNode = useContext(ModalContext);
     if (!modalNode) return null;
 
@@ -29,8 +29,10 @@ export function Modal({ onClose, children, className = '' }) {
         <div className='modal'>
             <div className='modal-background' onClick={onClose} />
             <div id='modal-body' onClick={e => e.stopPropagation()} className={className}>
-                <img alt='' className='modal-papyrus' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/auth-papyrus.png'}>
-                </img>
+                {background &&
+                    <img alt='' className='modal-papyrus' src={'https://grandhcypher-crew.s3.us-west-1.amazonaws.com/images/auth-papyrus.png'}>
+                    </img>
+                }
                 {children}
             </div>
         </div>,
