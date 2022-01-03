@@ -4,7 +4,7 @@ function CharacterInfo({ character }) {
 
     return (
         <div className='character-info'>
-            HELLO
+            <img src={character.character_url} />
         </div>
     )
 }
