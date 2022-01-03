@@ -1,4 +1,5 @@
 import React from "react";
+import CharacterInfoModal from "./characterModal";
 import { useSelector } from "react-redux";
 
 function CharacterCard({ character }) {
