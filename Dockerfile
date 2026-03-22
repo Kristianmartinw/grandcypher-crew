@@ -28,4 +28,4 @@ RUN pip install -r requirements.txt
 RUN pip install psycopg2
 
 # Run flask environment
-CMD python -m flask db upgrade && gunicorn --bind 0.0.0.0:${PORT:-8000} app:app
+CMD python -m flask db upgrade && python -m flask seed all && gunicorn --bind 0.0.0.0:${PORT:-8000} app:app
